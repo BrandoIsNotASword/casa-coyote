@@ -1,17 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useStaticQuery, graphql } from 'gatsby'
 import { Global, css } from '@emotion/core'
-import { ThemeProvider, CSSReset, theme } from '@chakra-ui/core'
+import { ThemeProvider, CSSReset, theme, Box, Flex } from '@chakra-ui/core'
 
-import Header from './header'
+import Header from '../header'
+import Footer from '../footer'
 
-import CircularStdBookWoff from '../fonts/CircularStd-Book.woff'
-import CircularStdBookWoff2 from '../fonts/CircularStd-Book.woff2'
-import CircularStdMediumWoff from '../fonts/CircularStd-Medium.woff'
-import CircularStdMediumWoff2 from '../fonts/CircularStd-Medium.woff2'
-import CircularStdBlackWoff from '../fonts/CircularStd-Black.woff'
-import CircularStdBlackWoff2 from '../fonts/CircularStd-Black.woff2'
+import CircularStdBookWoff from '../../fonts/CircularStd-Book.woff'
+import CircularStdBookWoff2 from '../../fonts/CircularStd-Book.woff2'
+import CircularStdMediumWoff from '../../fonts/CircularStd-Medium.woff'
+import CircularStdMediumWoff2 from '../../fonts/CircularStd-Medium.woff2'
+import CircularStdBlackWoff from '../../fonts/CircularStd-Black.woff'
+import CircularStdBlackWoff2 from '../../fonts/CircularStd-Black.woff2'
 
 const customTheme = {
   ...theme,
@@ -73,35 +73,17 @@ const globalStyles = css`
 `
 
 function Layout({ children }) {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   return (
     <ThemeProvider theme={customTheme}>
       <CSSReset />
       <Global styles={globalStyles} />
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+      <Flex direction="column" minHeight="100vh">
+        <Header />
+        <Box as="main" flex="1">
+          {children}
+        </Box>
+        <Footer />
+      </Flex>
     </ThemeProvider>
   )
 }
