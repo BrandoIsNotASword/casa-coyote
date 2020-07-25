@@ -30,7 +30,7 @@ function IndexPage() {
 
         <Section maxWidth="100%" paddingX={0}>
           <EmbedVideo
-            height={{ base: '300px', sm: '350px', md: '400px', lg: '500px', xl: '600px' }}
+            height={{ base: '300px', sm: '350px', md: '450px', lg: '550px', xl: '650px' }}
             url="https://youtu.be/FwB5P5XMymQ"
           />
         </Section>

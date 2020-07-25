@@ -1,5 +1,6 @@
 import React from 'react'
-import { Flex, Image, Box, Text, Divider } from '@chakra-ui/core'
+import { FiMapPin, FiMail, FiPhone } from 'react-icons/fi'
+import { Flex, Image, Box, Text, Stack, Divider } from '@chakra-ui/core'
 
 import footerLogo from '../../images/casa-coyote-logo-footer.png'
 
@@ -11,14 +12,18 @@ function Footer() {
       justify="space-between"
       backgroundColor="black"
       color="white"
-      height={{ base: 'auto', lg: 20 }}
       paddingX={{ base: 6, lg: 20 }}
-      paddingY={{ base: 6, lg: 0 }}
+      paddingY={10}
       alignItems="center"
       flexWrap="wrap"
     >
-      <Flex direction="column">
-        <Flex textAlign="center" align="center" direction="column">
+      <Flex
+        direction={{ base: 'column', md: 'row' }}
+        justify="space-between"
+        align="center"
+        width="100%"
+      >
+        <Flex textAlign="center" align="center" direction="column" maxWidth="350px">
           <Box maxWidth="150px" marginBottom={4}>
             <Image src={footerLogo} />
           </Box>
@@ -28,20 +33,42 @@ function Footer() {
           </Text>
         </Flex>
 
-        <Flex marginTop={4} direction="column">
+        <Flex marginTop={6} direction="column">
           <Text fontWeight="bold" marginBottom={2}>
             CONTACT US
           </Text>
-          <Text>Carretera Tulum Boca Paila km 9.2</Text>
-          <Text>reservaciones@hotelcasacoyotetulum.com</Text>
-          <Text>+52 1 951 244 1236</Text>
+          <Stack spacing={2}>
+            <Stack isInline align="center" spacing={3} shouldWrapChildren>
+              <FiMapPin size="1.25rem" />
+              <Text>Carretera Tulum Boca Paila km 9.2</Text>
+            </Stack>
+            <Stack isInline align="center" spacing={3} shouldWrapChildren>
+              <FiMail size="1.25rem" />
+              <Text wordBreak="break-word" lineHeight="normal">
+                reservaciones@hotelcasacoyotetulum.com
+              </Text>
+            </Stack>
+            <Stack isInline align="center" spacing={3} shouldWrapChildren>
+              <FiPhone size="1.25rem" />
+              <Text>+52 1 951 244 1236</Text>
+            </Stack>
+          </Stack>
         </Flex>
       </Flex>
 
-      <Divider width="100%" opacity="0.25" marginY={4} />
+      <Divider width="100%" opacity="0.15" marginY={6} />
 
       <Text fontSize="sm" textAlign="center">
-        © Hotel Casa Coyote Tulum - All Rights Reserved. Web by hmnagency.
+        © Hotel Casa Coyote Tulum. All Rights Reserved. Web design by{' '}
+        <a
+          href="https://hmnagency.com/"
+          target="_blank"
+          rel="noreferrer"
+          style={{ fontSize: 'inherit', textDecoration: 'underline' }}
+        >
+          hmnagency
+        </a>
+        .
       </Text>
     </Flex>
   )
