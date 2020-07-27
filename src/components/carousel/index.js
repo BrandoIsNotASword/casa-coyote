@@ -12,11 +12,10 @@ function Carousel({ children, ...restProps }) {
 
   const goNext = () => {
     if (ref.current !== null && ref.current.swiper !== null) {
-      console.log(ref.current.swiper.activeIndex)
       if (ref.current.swiper.activeIndex === children.length - 2) {
         setIsNextVisible(false)
         setIsPrevVisible(true)
-      }
+      } else setIsPrevVisible(true)
       ref.current.swiper.slideNext()
     }
   }
@@ -26,7 +25,7 @@ function Carousel({ children, ...restProps }) {
       if (ref.current.swiper.activeIndex === 1) {
         setIsPrevVisible(false)
         setIsNextVisible(true)
-      }
+      } else setIsNextVisible(true)
       ref.current.swiper.slidePrev()
     }
   }
