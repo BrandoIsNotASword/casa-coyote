@@ -3,8 +3,6 @@ import { Box, Button } from '@chakra-ui/core'
 import Swiper from 'react-id-swiper'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 
-import 'swiper/swiper-bundle.css'
-
 function Carousel({ children, ...restProps }) {
   const ref = useRef(null)
   const [isNextVisible, setIsNextVisible] = useState(true)

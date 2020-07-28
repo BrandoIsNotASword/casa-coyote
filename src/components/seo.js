@@ -68,7 +68,9 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+      <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    </Helmet>
   )
 }
 

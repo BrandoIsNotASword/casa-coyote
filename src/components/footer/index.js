@@ -1,6 +1,6 @@
 import React from 'react'
 import { FiMapPin, FiMail, FiPhone, FiInstagram } from 'react-icons/fi'
-import { Flex, Image, Box, Text, Stack, Divider } from '@chakra-ui/core'
+import { Flex, Image, Box, Text, Stack, Divider, Link } from '@chakra-ui/core'
 
 import footerLogo from '../../images/casa-coyote-logo-footer.png'
 
@@ -37,25 +37,31 @@ function Footer() {
           <Text fontWeight="bold" marginBottom={2}>
             CONTACT US
           </Text>
-          <Stack spacing={2}>
+          <Stack spacing={3}>
             <Stack isInline align="center" spacing={3} shouldWrapChildren>
               <FiMapPin size="1.25rem" />
               <Text>Carretera Tulum Boca Paila km 9.2</Text>
             </Stack>
-            <Stack isInline align="center" spacing={3} shouldWrapChildren>
-              <FiMail size="1.25rem" />
-              <Text wordBreak="break-word" lineHeight="normal">
-                reservaciones@hotelcasacoyotetulum.com
-              </Text>
-            </Stack>
-            <Stack isInline align="center" spacing={3} shouldWrapChildren>
-              <FiPhone size="1.25rem" />
-              <Text>+52 1 951 244 1236</Text>
-            </Stack>
-            <Stack isInline align="center" spacing={3} shouldWrapChildren>
-              <FiInstagram size="1.25rem" />
-              <Text>casa_coyote</Text>
-            </Stack>
+            <Link href="mailto:reservaciones@hotelcasacoyotetulum.com">
+              <Stack isInline align="center" spacing={3} shouldWrapChildren>
+                <FiMail size="1.25rem" />
+                <Text wordBreak="break-word" lineHeight="normal">
+                  admongrupomanifesto@gmail.com
+                </Text>
+              </Stack>
+            </Link>
+            <Link href="tel:+5219841135252">
+              <Stack isInline align="center" spacing={3} shouldWrapChildren>
+                <FiPhone size="1.25rem" />
+                <Text>+52 1 984 113 5252</Text>
+              </Stack>
+            </Link>
+            <Link href="https://www.instagram.com/casa_coyote/" target="_blank" rel="noreferrer">
+              <Stack isInline align="center" spacing={3} shouldWrapChildren>
+                <FiInstagram size="1.25rem" />
+                <Text>casa_coyote</Text>
+              </Stack>
+            </Link>
           </Stack>
         </Flex>
       </Flex>
