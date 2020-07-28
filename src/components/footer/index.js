@@ -1,5 +1,5 @@
 import React from 'react'
-import { FiMapPin, FiMail, FiPhone } from 'react-icons/fi'
+import { FiMapPin, FiMail, FiPhone, FiInstagram } from 'react-icons/fi'
 import { Flex, Image, Box, Text, Stack, Divider } from '@chakra-ui/core'
 
 import footerLogo from '../../images/casa-coyote-logo-footer.png'
@@ -51,6 +51,10 @@ function Footer() {
             <Stack isInline align="center" spacing={3} shouldWrapChildren>
               <FiPhone size="1.25rem" />
               <Text>+52 1 951 244 1236</Text>
+            </Stack>
+            <Stack isInline align="center" spacing={3} shouldWrapChildren>
+              <FiInstagram size="1.25rem" />
+              <Text>casa_coyote</Text>
             </Stack>
           </Stack>
         </Flex>

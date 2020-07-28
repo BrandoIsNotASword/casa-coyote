@@ -25,8 +25,8 @@ function Hero() {
         <Text
           opacity="0.85"
           color="white"
-          fontSize={{ base: 'xl', md: '2xl', lg: '3xl' }}
-          maxWidth={{ md: '400px', lg: '500px' }}
+          fontSize={{ base: 'xl', md: '2xl' }}
+          maxWidth={{ base: '300px', md: '400px' }}
         >
           100% eco-hotel with private suites in Tulum, México.
         </Text>

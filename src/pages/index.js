@@ -22,6 +22,7 @@ import FeatureList from '../components/featureList'
 import EmbedVideo from '../components/embedVideo'
 
 import Carousel from '../components/carousel'
+import FloatingBookNow from '../components/floatingBookNow'
 
 function IndexPage() {
   return (
@@ -29,7 +30,7 @@ function IndexPage() {
       <SEO title="Home" />
       <Hero />
       <Article>
-        <Section textAlign="center">
+        <Section textAlign="center" id="the-hotel">
           <H4 marginBottom={2}>WELCOME TO CASA COYOTE</H4>
           <H1>Eco-Hotel in Tulum, México</H1>
           <Text fontWeight="light" maxWidth="600px" marginX="auto" marginTop={4} fontSize="lg">
@@ -48,7 +49,7 @@ function IndexPage() {
           />
         </Section>
 
-        <Section>
+        <Section id="our-rooms">
           <Flex direction={{ base: 'column', lg: 'row' }} height={{ lg: '500px' }}>
             <Flex
               direction="column"
@@ -74,10 +75,20 @@ function IndexPage() {
                   5 minutes from the best restaurants, bars & shops area. Next to us we have the
                   best Spa at Tulum Yáan.
                 </Text>
+                <Box>
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119865.80674981946!2d-87.53094803935669!3d20.14212035995232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4fd74b3025cfe9%3A0xb84a5f174207cf7a!2sHotel%20Casa%20Coyote!5e0!3m2!1sen!2smx!4v1595975229358!5m2!1sen!2smx"
+                    width="100%"
+                    height="100%"
+                    frameborder="0"
+                    style={{ border: '0' }}
+                    aria-hidden="false"
+                    title="Casa Coyote"
+                  />
+                </Box>
                 <Button
                   maxWidth={{ lg: '200px' }}
-                  color="white"
-                  backgroundColor="black"
+                  variantColor="primary"
                   size="lg"
                   _hover={{ backgroundColor: 'black', color: 'white' }}
                 >
@@ -128,13 +139,13 @@ function IndexPage() {
           </Flex>
         </Section>
 
-        <Section textAlign="center">
+        <Section textAlign="center" id="contact">
           <H4 marginBottom={2}>CONNECT WITH US</H4>
           <H1>Send us a message</H1>
           <Text> Send a message for more information and we'll reach you as soon as posible.</Text>
           <Stack
             spacing={4}
-            padding={10}
+            padding={{ base: 6, lg: 10 }}
             backgroundColor="gray.100"
             textAlign="left"
             marginTop={6}
@@ -162,12 +173,14 @@ function IndexPage() {
               <Textarea />
             </FormControl>
 
-            <Button variantColor="green" size="lg">
+            <Button variantColor="primary" size="lg">
               Send a message
             </Button>
           </Stack>
         </Section>
       </Article>
+
+      <FloatingBookNow />
     </Layout>
   )
 }
