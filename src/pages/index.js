@@ -20,9 +20,7 @@ import Section from '../components/section'
 import { H1, H4 } from '../components/globals'
 import FeatureList from '../components/featureList'
 import EmbedVideo from '../components/embedVideo'
-
 import Carousel from '../components/carousel'
-import FloatingBookNow from '../components/floatingBookNow'
 
 function IndexPage() {
   return (
@@ -80,7 +78,7 @@ function IndexPage() {
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119865.80674981946!2d-87.53094803935669!3d20.14212035995232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4fd74b3025cfe9%3A0xb84a5f174207cf7a!2sHotel%20Casa%20Coyote!5e0!3m2!1sen!2smx!4v1595975229358!5m2!1sen!2smx"
                     width="100%"
                     height="100%"
-                    frameborder="0"
+                    frameBorder="0"
                     style={{ border: '0' }}
                     aria-hidden="false"
                     title="Casa Coyote"
@@ -179,8 +177,6 @@ function IndexPage() {
           </Stack>
         </Section>
       </Article>
-
-      <FloatingBookNow />
     </Layout>
   )
 }

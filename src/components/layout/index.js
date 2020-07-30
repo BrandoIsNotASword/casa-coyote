@@ -5,6 +5,8 @@ import { ThemeProvider, CSSReset, theme, Box, Flex } from '@chakra-ui/core'
 
 import Header from '../header'
 import Footer from '../footer'
+import WhatsappButton from '../whatsappButton'
+import FloatingBookNow from '../floatingBookNow'
 
 import CircularStdBookWoff from '../../fonts/CircularStd-Book.woff'
 import CircularStdBookWoff2 from '../../fonts/CircularStd-Book.woff2'
@@ -99,6 +101,8 @@ function Layout({ children }) {
         </Box>
         <Footer />
       </Flex>
+      <WhatsappButton />
+      <FloatingBookNow />
     </ThemeProvider>
   )
 }
