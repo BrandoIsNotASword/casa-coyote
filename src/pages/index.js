@@ -53,7 +53,7 @@ function IndexPage() {
               direction="column"
               flexShrink={0}
               flexBasis="50%"
-              padding={{ lg: 10 }}
+              paddingRight={{ lg: 10 }}
               marginBottom={{ base: 6, lg: 0 }}
               justify="center"
             >

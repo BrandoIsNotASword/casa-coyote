@@ -14,7 +14,7 @@ function WhatsappButton() {
       justify="center"
       align="center"
       color="white"
-      marginBottom={{ base: '70px', lg: '10px' }}
+      marginBottom={{ base: '70px', xl: '10px' }}
       marginRight="10px"
       boxShadow="0px 0px 6px rgba(0,0,0,0.25)"
     >

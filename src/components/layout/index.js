@@ -7,6 +7,7 @@ import Header from '../header'
 import Footer from '../footer'
 import WhatsappButton from '../whatsappButton'
 import FloatingBookNow from '../floatingBookNow'
+import BookingModal from '../bookingModal'
 
 import CircularStdBookWoff from '../../fonts/CircularStd-Book.woff'
 import CircularStdBookWoff2 from '../../fonts/CircularStd-Book.woff2'
@@ -103,6 +104,7 @@ function Layout({ children }) {
       </Flex>
       <WhatsappButton />
       <FloatingBookNow />
+      <BookingModal />
     </ThemeProvider>
   )
 }
