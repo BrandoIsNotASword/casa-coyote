@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
-import { Modal, ModalOverlay, ModalContent, Button, useDisclosure, useTheme } from '@chakra-ui/core'
+import PropTypes from 'prop-types'
+import { Modal, ModalOverlay, ModalContent, useTheme } from '@chakra-ui/core'
 
-function BookingModal() {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+function BookingModal({ isOpen, onClose }) {
   const theme = useTheme()
 
   useEffect(() => {
@@ -16,8 +16,7 @@ function BookingModal() {
 
   return (
     <>
-      <Button onClick={onOpen}>Open Modal</Button>
-      <Modal isOpen={isOpen} onClose={onClose} size="full">
+      <Modal isOpen={isOpen} onClose={onClose} size="full" closeOnOverlayClick={false}>
         <ModalOverlay />
         <ModalContent marginY={0} marginX="auto" minHeight="100vh" maxWidth={theme.breakpoints.lg}>
           <iframe
@@ -29,6 +28,16 @@ function BookingModal() {
       </Modal>
     </>
   )
+}
+
+BookingModal.propTypes = {
+  isOpen: PropTypes.bool,
+  onClose: PropTypes.func,
+}
+
+BookingModal.defaultProps = {
+  isOpen: false,
+  onClose: () => {},
 }
 
 export default BookingModal

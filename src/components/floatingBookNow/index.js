@@ -1,5 +1,7 @@
 import React from 'react'
-import { Flex, Text, Button, useTheme, Box } from '@chakra-ui/core'
+import { Flex, Text, useTheme, Box } from '@chakra-ui/core'
+
+import BookButton from '../bookButton'
 
 function FloatingBookNow() {
   const theme = useTheme()
@@ -22,7 +24,7 @@ function FloatingBookNow() {
         <Text fontWeight="bold">Eco-hotel in Tulum</Text>
         <Text>100% eco-private suites.</Text>
       </Box>
-      <Button variantColor="primary">Book now</Button>
+      <BookButton />
     </Flex>
   )
 }

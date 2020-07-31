@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRecoilState } from 'recoil'
 import PropTypes from 'prop-types'
 import { Global, css } from '@emotion/core'
 import { ThemeProvider, CSSReset, theme, Box, Flex } from '@chakra-ui/core'
@@ -15,6 +16,8 @@ import CircularStdMediumWoff from '../../fonts/CircularStd-Medium.woff'
 import CircularStdMediumWoff2 from '../../fonts/CircularStd-Medium.woff2'
 import CircularStdBlackWoff from '../../fonts/CircularStd-Black.woff'
 import CircularStdBlackWoff2 from '../../fonts/CircularStd-Black.woff2'
+
+import { bookingModalState } from '../../store'
 
 const customTheme = {
   ...theme,
@@ -91,6 +94,8 @@ const globalStyles = css`
 `
 
 function Layout({ children }) {
+  const [isBookingModalOpen, setIsBookingModalOpen] = useRecoilState(bookingModalState)
+
   return (
     <ThemeProvider theme={customTheme}>
       <CSSReset />
@@ -104,7 +109,7 @@ function Layout({ children }) {
       </Flex>
       <WhatsappButton />
       <FloatingBookNow />
-      <BookingModal />
+      <BookingModal isOpen={isBookingModalOpen} onClose={() => setIsBookingModalOpen(false)} />
     </ThemeProvider>
   )
 }

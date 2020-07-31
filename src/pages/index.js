@@ -21,6 +21,7 @@ import { H1, H4 } from '../components/globals'
 import FeatureList from '../components/featureList'
 import EmbedVideo from '../components/embedVideo'
 import Carousel from '../components/carousel'
+import BookButton from '../components/bookButton'
 
 function IndexPage() {
   return (
@@ -84,14 +85,7 @@ function IndexPage() {
                     title="Casa Coyote"
                   />
                 </Box>
-                <Button
-                  maxWidth={{ lg: '200px' }}
-                  variantColor="primary"
-                  size="lg"
-                  _hover={{ backgroundColor: 'black', color: 'white' }}
-                >
-                  Book now
-                </Button>
+                <BookButton maxWidth={{ lg: '200px' }} size="lg" />
               </Stack>
             </Flex>
             <Box
