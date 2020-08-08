@@ -10,7 +10,6 @@
     "@emotion/styled": "^10.0.27",
     "@statickit/react": "^2.1.1",
     "emotion-theming": "^10.0.27",
-    "formik": "^2.1.5",
     "gatsby": "^2.23.12",
     "gatsby-image": "^2.4.9",
     "gatsby-plugin-chakra-ui": "^0.1.4",

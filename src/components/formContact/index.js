@@ -1,4 +1,6 @@
 import React from 'react'
+import { useForm } from '@statickit/react'
+
 import {
   Textarea,
   Button,
@@ -8,90 +10,48 @@ import {
   Input,
   Stack,
 } from '@chakra-ui/core'
-import { Formik } from 'formik'
 
 function FormContact() {
-  const onSubmit = async (values, { setSubmitting }) => {
-    setSubmitting(false)
-  }
+  const [state, handleSubmit] = useForm('contactForm')
 
   return (
-    <Formik
-      initialValues={{
-        name: '',
-        email: '',
-        message: '',
-      }}
-      validate={(values) => {
-        const errors = {}
+    <form onSubmit={handleSubmit}>
+      <Stack
+        spacing={4}
+        padding={{ base: 6, lg: 10 }}
+        backgroundColor="gray.100"
+        textAlign="left"
+        marginTop={6}
+        marginX="auto"
+        maxWidth={{ lg: '960px' }}
+      >
+        <FormControl>
+          <FormLabel isRequired htmlFor="name">
+            Name
+          </FormLabel>
+          <Input placeholder="John Matthews" id="name" name="name" />
+        </FormControl>
 
-        if (!values.email) {
-          errors.email = 'Email is required'
-        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-          errors.email = 'Email is invalid'
-        }
+        <FormControl>
+          <FormLabel isRequired htmlFor="email">
+            Email
+          </FormLabel>
+          <Input placeholder="myemail@example.com" id="email" type="email" name="email" />
+          <FormErrorMessage></FormErrorMessage>
+        </FormControl>
 
-        return errors
-      }}
-      onSubmit={onSubmit}
-    >
-      {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
-        <form method="POST" onSubmit={handleSubmit}>
-          <Stack
-            spacing={4}
-            padding={{ base: 6, lg: 10 }}
-            backgroundColor="gray.100"
-            textAlign="left"
-            marginTop={6}
-            marginX="auto"
-            maxWidth={{ lg: '960px' }}
-          >
-            <FormControl>
-              <FormLabel isRequired htmlFor="name">
-                Name
-              </FormLabel>
-              <Input
-                placeholder="John Matthews"
-                name="name"
-                value={values.name}
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-            </FormControl>
+        <FormControl>
+          <FormLabel isRequired htmlFor="message">
+            Message
+          </FormLabel>
+          <Textarea name="message" id="message" />
+        </FormControl>
 
-            <FormControl isInvalid={errors.email && touched.email}>
-              <FormLabel isRequired htmlFor="email">
-                Email
-              </FormLabel>
-              <Input
-                placeholder="myemail@example.com"
-                name="email"
-                value={values.email}
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-              <FormErrorMessage>{errors.email}</FormErrorMessage>
-            </FormControl>
-
-            <FormControl>
-              <FormLabel isRequired htmlFor="message">
-                Message
-              </FormLabel>
-              <Textarea
-                name="message"
-                value={values.message}
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-            </FormControl>
-
-            <Button isDisabled={isSubmitting} type="submit" variantColor="primary" size="lg">
-              Send a message
-            </Button>
-          </Stack>
-        </form>
-      )}
-    </Formik>
+        <Button isDisabled={state.submitting} type="submit" variantColor="primary" size="lg">
+          Send a message
+        </Button>
+      </Stack>
+    </form>
   )
 }
 
