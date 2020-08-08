@@ -22,6 +22,12 @@ module.exports = {
         path: `${__dirname}/src/fonts`,
       },
     },
+    {
+      resolve: `gatsby-plugin-statickit`,
+      options: {
+        siteId: '1f91ad958a48',
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

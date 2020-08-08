@@ -1,16 +1,5 @@
 import React from 'react'
-import {
-  Divider,
-  Stack,
-  Flex,
-  Box,
-  Text,
-  Button,
-  Input,
-  Textarea,
-  FormControl,
-  FormLabel,
-} from '@chakra-ui/core'
+import { Divider, Stack, Flex, Box, Text } from '@chakra-ui/core'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
@@ -22,6 +11,7 @@ import FeatureList from '../components/featureList'
 import EmbedVideo from '../components/embedVideo'
 import Carousel from '../components/carousel'
 import BookButton from '../components/bookButton'
+import FormContact from '../components/formContact'
 
 function IndexPage() {
   return (
@@ -135,40 +125,7 @@ function IndexPage() {
           <H4 marginBottom={2}>CONNECT WITH US</H4>
           <H1>Send us a message</H1>
           <Text> Send a message for more information and we'll reach you as soon as posible.</Text>
-          <Stack
-            spacing={4}
-            padding={{ base: 6, lg: 10 }}
-            backgroundColor="gray.100"
-            textAlign="left"
-            marginTop={6}
-            marginX="auto"
-            maxWidth={{ lg: '960px' }}
-          >
-            <FormControl>
-              <FormLabel isRequired htmlFor="name">
-                Name
-              </FormLabel>
-              <Input placeholder="John Matthews" />
-            </FormControl>
-
-            <FormControl>
-              <FormLabel isRequired htmlFor="email">
-                Email
-              </FormLabel>
-              <Input placeholder="myemail@example.com" />
-            </FormControl>
-
-            <FormControl>
-              <FormLabel isRequired htmlFor="message">
-                Message
-              </FormLabel>
-              <Textarea />
-            </FormControl>
-
-            <Button variantColor="primary" size="lg">
-              Send a message
-            </Button>
-          </Stack>
+          <FormContact />
         </Section>
       </Article>
     </Layout>
