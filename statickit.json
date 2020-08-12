@@ -2,7 +2,7 @@
   "forms": {
     "contactForm": {
       "name": "Contact Form",
-      "actions": [{ "type": "email", "to": "brando.perez.pacheco@gmail.com" }]
+      "actions": [{ "type": "email", "to": "admongrupomanifesto@gmail.com" }]
     }
   }
 }

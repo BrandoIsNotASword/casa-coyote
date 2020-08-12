@@ -8,7 +8,7 @@
     "@chakra-ui/core": "^0.8.0",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
-    "@statickit/functions": "github:unstacked/statickit-functions#83a95995-5690-4b2d-968f-ec8f8210bff6",
+    "@statickit/functions": "github:unstacked/statickit-functions#51f32036-40f9-40fb-8b12-419c4b4cbd16",
     "@statickit/react": "^2.1.1",
     "emotion-theming": "^10.0.27",
     "gatsby": "^2.23.12",

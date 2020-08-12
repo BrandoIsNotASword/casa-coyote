@@ -8,6 +8,7 @@ const Link = styled(GatsbyLink)`
   font-weight: bold;
   opacity: 0.95;
   padding: 15px 0;
+  display: block;
 
   &:hover {
     opacity: 1;
@@ -19,15 +20,16 @@ function Nav(props) {
     <Stack
       as="nav"
       isInline
-      spacing={4}
+      spacing={6}
       alignItems="center"
-      marginY={{ base: '15px', md: 0 }}
       shouldWrapChildren
+      overflowX="auto"
       {...props}
     >
-      <Link to="#">Home</Link>
-      <Link to="#the-hotel">The Hotel</Link>
-      <Link to="#our-rooms">Our Rooms</Link>
+      <Link to="#hotel">Hotel</Link>
+      <Link to="#rooms">Rooms</Link>
+      <Link to="#experience">Experience</Link>
+      <Link to="#restaurant">Restaurant</Link>
       <Link to="#contact">Contact</Link>
     </Stack>
   )

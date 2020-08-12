@@ -107,7 +107,7 @@ function Layout({ children }) {
         </Box>
         <Footer />
       </Flex>
-      <WhatsappButton />
+      <WhatsappButton text="Hi, I want more information about Casa Coyote..." />
       <FloatingBookNow />
       <BookingModal isOpen={isBookingModalOpen} onClose={() => setIsBookingModalOpen(false)} />
     </ThemeProvider>
