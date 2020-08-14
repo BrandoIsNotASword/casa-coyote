@@ -1,13 +1,13 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Flex, Image, Text, Box } from '@chakra-ui/core'
 
-import bg from '../../images/background-casa-coyote.jpg'
 import heroLogo from '../../images/hero-logo.png'
 
-function Hero() {
+function Hero({ bg }) {
   return (
     <Flex
-      background={`linear-gradient(rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%), url(${bg})`}
+      background={`linear-gradient(rgba(0, 0, 0, 0.45) 100%, rgba(0, 0, 0, 0.45) 100%), url(${bg})`}
       backgroundPosition="center"
       backgroundSize="cover"
       backgroundRepeat="no-repeat"
@@ -33,6 +33,14 @@ function Hero() {
       </Box>
     </Flex>
   )
+}
+
+Hero.propTypes = {
+  bg: PropTypes.string,
+}
+
+Hero.defaultProps = {
+  bg: '',
 }
 
 export default Hero

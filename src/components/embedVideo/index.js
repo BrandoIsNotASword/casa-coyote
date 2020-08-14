@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ReactPlayer from 'react-player/youtube'
+import ReactPlayer from 'react-player/facebook'
 import { Box } from '@chakra-ui/core'
 
 function EmbedVideo({ url, ...restProps }) {

@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import { Divider, Stack, Button, Box, Text } from '@chakra-ui/core'
 
 import Layout from '../components/layout'
@@ -7,21 +8,22 @@ import Hero from '../components/hero'
 import Article from '../components/article'
 import Section from '../components/section'
 import GalleryContent from '../components/galleryContent'
-import { H1, H4 } from '../components/globals'
+import { H1, H2, H3, H4 } from '../components/globals'
 import FeatureList from '../components/featureList'
 // import EmbedVideo from '../components/embedVideo'
-import Carousel from '../components/carousel'
 import BookButton from '../components/bookButton'
 import FormContact from '../components/formContact'
 
-function IndexPage() {
+function IndexPage({ data }) {
   return (
     <Layout>
       <SEO title="Home" />
-      <Hero />
+      <Hero bg={data.hero.childImageSharp.fixed.srcWebp} />
       <Article>
         <Section textAlign="center" id="hotel">
-          <H4 marginBottom={2}>WELCOME TO CASA COYOTE</H4>
+          <H2 fontSize="md" fontWeight="bold" marginBottom={2}>
+            WELCOME TO CASA COYOTE
+          </H2>
           <H1>Eco-Hotel in Tulum, México</H1>
           <Text fontWeight="light" maxWidth="600px" marginX="auto" marginTop={4} fontSize="lg">
             Stay at Casa Coyote, an amazing experience that will free your mind & touch your soul.
@@ -41,16 +43,10 @@ function IndexPage() {
 
         <Section id="rooms">
           <GalleryContent
-            images={[
-              'https://www.hotelcasacoyotetulum.com/wp-content/uploads/2019/01/Casa-Coyote-14.jpeg',
-              'https://www.hotelcasacoyotetulum.com/wp-content/uploads/2019/01/Sala-Casa-Coyote.jpg',
-              'https://www.hotelcasacoyotetulum.com/wp-content/uploads/2019/01/Casa-Coyote-7.jpeg',
-              'https://www.hotelcasacoyotetulum.com/wp-content/uploads/2019/01/Ba%C3%B1o-Casa-Coyote.jpg',
-              'https://www.hotelcasacoyotetulum.com/wp-content/uploads/2019/01/Casa-3-Casa-Coyote.jpg',
-            ]}
+            images={data.rooms.edges.map((image) => image.node.childImageSharp.fixed.srcWebp)}
           >
             <H4 marginBottom={2}>MEET OUR ECO-SUITES</H4>
-            <H1>Our Private Rooms</H1>
+            <H3>Our Private Rooms</H3>
             <Stack spacing={4} marginTop={4}>
               <Text>
                 All Rooms have King Size Bed, Fan, Private Bathroom, Mayan Venting, Full Closet,
@@ -84,29 +80,25 @@ function IndexPage() {
         <Section id="experience">
           <GalleryContent
             reversed
-            images={[
-              'https://www.hotelcasacoyotetulum.com/wp-content/uploads/2019/01/Casa-Coyote-14.jpeg',
-              'https://www.hotelcasacoyotetulum.com/wp-content/uploads/2019/01/Sala-Casa-Coyote.jpg',
-              'https://www.hotelcasacoyotetulum.com/wp-content/uploads/2019/01/Casa-Coyote-7.jpeg',
-              'https://www.hotelcasacoyotetulum.com/wp-content/uploads/2019/01/Ba%C3%B1o-Casa-Coyote.jpg',
-              'https://www.hotelcasacoyotetulum.com/wp-content/uploads/2019/01/Casa-3-Casa-Coyote.jpg',
-            ]}
+            images={data.experience.edges.map((image) => image.node.childImageSharp.fixed.srcWebp)}
           >
-            <H4 marginBottom={2}>SPA, TEMAZCAL, TOURS</H4>
-            <H1>Casa Coyote Experience</H1>
+            <H4 marginBottom={2}>EXPERIENCE TULUM</H4>
+            <H3>Casa Coyote Experience</H3>
             <Stack spacing={4} marginTop={4}>
               <Text>
-                All Rooms have King Size Bed, Fan, Private Bathroom, Mayan Venting, Full Closet,
-                Hand Soap, Body Wash, Organic Shampoo.
+                Spa offers a wider variety of healing bodywork and energy work to better assist
+                retreat guests in achieving their optimum health goals, both physically and
+                energetically during their stay with us.
               </Text>
               <Text>
-                Bath and Beach Towels. Remember that we are here for you at any time & also located
-                at beach side (3 min walk to the beach) at the hotel area, next to Be Tulum, Casa
-                Malca & Nomade.
+                The temazcal is a physical, mental and spiritual purification ceremony. We enter in
+                the inipi to let go of what we don’t need for our daily life, to let go of our fear,
+                anger, depression and every single thing that don’t really belong to us. We have
+                group and couples 90 minute ceremony.
               </Text>
               <Text>
-                5 minutes from the best restaurants, bars & shops area. Next to us we have the best
-                Spa at Tulum Yáan.
+                Sunset experience is an unique opportunity to enjoy the sunset hour in a private
+                terrace. A romantic experience to make a toast, to thanks love and life.
               </Text>
               <BookButton maxWidth={{ lg: '200px' }} size="lg" />
             </Stack>
@@ -115,16 +107,10 @@ function IndexPage() {
 
         <Section id="restaurant">
           <GalleryContent
-            images={[
-              'https://www.hotelcasacoyotetulum.com/wp-content/uploads/2019/01/Casa-Coyote-14.jpeg',
-              'https://www.hotelcasacoyotetulum.com/wp-content/uploads/2019/01/Sala-Casa-Coyote.jpg',
-              'https://www.hotelcasacoyotetulum.com/wp-content/uploads/2019/01/Casa-Coyote-7.jpeg',
-              'https://www.hotelcasacoyotetulum.com/wp-content/uploads/2019/01/Ba%C3%B1o-Casa-Coyote.jpg',
-              'https://www.hotelcasacoyotetulum.com/wp-content/uploads/2019/01/Casa-3-Casa-Coyote.jpg',
-            ]}
+            images={data.restaurant.edges.map((image) => image.node.childImageSharp.fixed.srcWebp)}
           >
             <H4 marginBottom={2}>MEET OUR RESTAURANT</H4>
-            <H1>Loco Tulum</H1>
+            <H3>Loco Tulum</H3>
             <Stack spacing={4} marginTop={4}>
               <Text>
                 Loco Tulum is the idea and philosophy of emphasizing the delight of every flavor,
@@ -148,19 +134,42 @@ function IndexPage() {
                 href="http://locotulum.com/"
                 target="_blank"
                 rel="noopener nofollow"
+                variant="outline"
                 variantColor="primary"
+                _hover={{ color: 'none' }}
                 maxWidth={{ lg: '200px' }}
                 size="lg"
               >
-                Visit site
+                Visit restaurant
               </Button>
             </Stack>
           </GalleryContent>
         </Section>
 
+        <Section textAlign="center" maxWidth="100%" backgroundColor="#e3f2f3">
+          <H4>MAGIC TOURS AND EXPERIENCES ARE WAITING FOR YOU</H4>
+          <Text marginTop={4} fontSize="2xl">
+            Loco Concierge helps you to create the best personalized experience in Tulum. <br />
+          </Text>
+          <Button
+            as="a"
+            href="https://www.locotulumconcierge.com/"
+            target="_blank"
+            rel="noopener nofollow"
+            variantColor="primary"
+            variant="outline"
+            _hover={{ color: 'none' }}
+            maxWidth={{ lg: '200px' }}
+            marginTop={4}
+            size="lg"
+          >
+            Visit site
+          </Button>
+        </Section>
+
         <Section textAlign="center" id="contact">
           <H4 marginBottom={2}>CONNECT WITH US</H4>
-          <H1>Send us a message</H1>
+          <H3>Send us a message</H3>
           <Text> Send a message for more information and we'll reach you as soon as posible.</Text>
           <FormContact />
         </Section>
@@ -168,5 +177,41 @@ function IndexPage() {
     </Layout>
   )
 }
+
+export const query = graphql`
+  fragment multipleFixedImage on FileConnection {
+    edges {
+      node {
+        childImageSharp {
+          fixed(width: 720, quality: 75) {
+            ...GatsbyImageSharpFixed_withWebp
+          }
+        }
+      }
+    }
+  }
+
+  query {
+    hero: file(relativePath: { eq: "background-casa-coyote.jpeg" }) {
+      childImageSharp {
+        fixed(width: 1440, quality: 65) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+
+    rooms: allFile(filter: { relativeDirectory: { eq: "rooms" } }) {
+      ...multipleFixedImage
+    }
+
+    experience: allFile(filter: { relativeDirectory: { eq: "experience" } }) {
+      ...multipleFixedImage
+    }
+
+    restaurant: allFile(filter: { relativeDirectory: { eq: "restaurant" } }) {
+      ...multipleFixedImage
+    }
+  }
+`
 
 export default IndexPage

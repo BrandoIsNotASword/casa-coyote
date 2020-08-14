@@ -1,4 +1,5 @@
 import React from 'react'
+import { v4 } from 'uuid'
 import PropTypes from 'prop-types'
 import { Flex, Box } from '@chakra-ui/core'
 
@@ -31,6 +32,7 @@ function GalleryContent({ children, images, reversed }) {
           {images.length !== 0 &&
             images.map((image) => (
               <Box
+                key={v4()}
                 paddingBottom={{ base: '75%', lg: '500px' }}
                 backgroundPosition="center"
                 backgroundSize="cover"

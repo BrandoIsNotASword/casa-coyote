@@ -8,13 +8,13 @@ export const H1 = ({ children, ...restProps }) => (
 )
 
 export const H2 = ({ children, ...restProps }) => (
-  <Heading as="h2" fontWeight="light" fontSize={{ base: 'lg', md: '2xl' }} {...restProps}>
+  <Heading as="h2" fontWeight="light" fontSize="2xl" {...restProps}>
     {children}
   </Heading>
 )
 
 export const H3 = ({ children, ...restProps }) => (
-  <Heading as="h3" fontSize="2xl" {...restProps}>
+  <Heading as="h3" fontSize="4xl" {...restProps}>
     {children}
   </Heading>
 )

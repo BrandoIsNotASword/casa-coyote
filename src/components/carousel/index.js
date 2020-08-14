@@ -1,65 +1,48 @@
-import React, { useState, useRef } from 'react'
+import React from 'react'
 import { Box, Button } from '@chakra-ui/core'
-import Swiper from 'react-id-swiper'
+import { default as NukaCarousel } from 'nuka-carousel'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 
 function Carousel({ children, ...restProps }) {
-  const ref = useRef(null)
-  const [isNextVisible, setIsNextVisible] = useState(true)
-  const [isPrevVisible, setIsPrevVisible] = useState(false)
-
-  const goNext = () => {
-    if (ref.current !== null && ref.current.swiper !== null) {
-      if (ref.current.swiper.activeIndex === children.length - 2) {
-        setIsNextVisible(false)
-        setIsPrevVisible(true)
-      } else setIsPrevVisible(true)
-      ref.current.swiper.slideNext()
-    }
-  }
-
-  const goPrev = () => {
-    if (ref.current !== null && ref.current.swiper !== null) {
-      if (ref.current.swiper.activeIndex === 1) {
-        setIsPrevVisible(false)
-        setIsNextVisible(true)
-      } else setIsNextVisible(true)
-      ref.current.swiper.slidePrev()
-    }
-  }
-
   return (
-    <Box {...restProps}>
-      <Swiper ref={ref} noSwiping>
+    <Box overflow="hidden" backgroundColor="gray.100" position="relative" {...restProps}>
+      <NukaCarousel
+        renderCenterRightControls={null}
+        renderCenterLeftControls={null}
+        renderBottomLeftControls={({ previousSlide, currentSlide }) => (
+          <Button
+            display={{ base: 'none', xl: currentSlide === 0 ? 'none' : 'flex' }}
+            onClick={previousSlide}
+            leftIcon={FiChevronLeft}
+            backgroundColor="rgba(0,0,0,0.65)"
+            color="white"
+            _hover={{ backgroundColor: 'rgba(0,0,0,0.75)' }}
+          >
+            Prev
+          </Button>
+        )}
+        renderBottomRightControls={({ nextSlide, currentSlide }) => (
+          <Button
+            display={{ base: 'none', xl: currentSlide === children.length - 1 ? 'none' : 'flex' }}
+            onClick={nextSlide}
+            rightIcon={FiChevronRight}
+            backgroundColor="rgba(0,0,0,0.65)"
+            color="white"
+            _hover={{ backgroundColor: 'rgba(0,0,0,0.75)' }}
+          >
+            Next
+          </Button>
+        )}
+        disableEdgeSwiping
+        defaultControlsConfig={{
+          pagingDotsStyle: {
+            fill: 'white',
+            margin: '0 3px',
+          },
+        }}
+      >
         {children}
-      </Swiper>
-
-      <Box position="absolute" bottom="0" zIndex={1}>
-        <Button
-          display={`${isPrevVisible ? 'flex' : 'none'}`}
-          onClick={goPrev}
-          leftIcon={FiChevronLeft}
-          backgroundColor="rgba(0,0,0,0.5)"
-          color="white"
-          borderRadius="0px"
-          _hover={{ backgroundColor: 'rgba(0,0,0,0.75)' }}
-        >
-          Prev
-        </Button>
-      </Box>
-      <Box position="absolute" bottom="0" right="0" zIndex={1}>
-        <Button
-          display={`${isNextVisible ? 'flex' : 'none'}`}
-          onClick={goNext}
-          rightIcon={FiChevronRight}
-          backgroundColor="rgba(0,0,0,0.5)"
-          color="white"
-          borderRadius="0px"
-          _hover={{ backgroundColor: 'rgba(0,0,0,0.75)' }}
-        >
-          Next
-        </Button>
-      </Box>
+      </NukaCarousel>
     </Box>
   )
 }
