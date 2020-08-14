@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'gatsby-plugin-react-i18next'
 import { graphql } from 'gatsby'
 import { Divider, Stack, Button, Box, Text } from '@chakra-ui/core'
 
@@ -15,6 +16,8 @@ import BookButton from '../components/bookButton'
 import FormContact from '../components/formContact'
 
 function IndexPage({ data }) {
+  const { t } = useTranslation()
+
   return (
     <Layout>
       <SEO title="Home" />

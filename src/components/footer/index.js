@@ -1,10 +1,14 @@
 import React from 'react'
-import { FiMapPin, FiMail, FiPhone, FiInstagram } from 'react-icons/fi'
-import { Flex, Image, Box, Text, Stack, Divider, Link } from '@chakra-ui/core'
+import { useI18next } from 'gatsby-plugin-react-i18next'
+
+import { FiMapPin, FiMail, FiPhone, FiInstagram, FiGlobe } from 'react-icons/fi'
+import { Flex, Image, Box, Text, Stack, Divider, Link, Button } from '@chakra-ui/core'
 
 import footerLogo from '../../images/casa-coyote-logo-footer.png'
 
 function Footer() {
+  const { changeLanguage, language } = useI18next()
+
   return (
     <Flex
       as="footer"
@@ -31,6 +35,15 @@ function Footer() {
             Amazing experience that will free your mind & touch your soul. Very cozy rooms, 100% ECO
             PRIVATE SUITES. Located at the most exclusive área of Tulum.
           </Text>
+          <Button
+            variant="outline"
+            rightIcon={FiGlobe}
+            marginTop={4}
+            _hover={{ color: 'inherit' }}
+            onClick={() => changeLanguage(language === 'es' ? 'en' : 'es')}
+          >
+            {language === 'es' ? 'English' : 'Español'}
+          </Button>
         </Flex>
 
         <Flex marginTop={6} direction="column">
