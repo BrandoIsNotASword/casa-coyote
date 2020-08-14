@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'gatsby-plugin-react-i18next'
 import styled from '@emotion/styled'
 import { Link as GatsbyLink } from 'gatsby'
 import { Stack } from '@chakra-ui/core'
@@ -16,6 +17,8 @@ const Link = styled(GatsbyLink)`
 `
 
 function Nav(props) {
+  const { t } = useTranslation()
+
   return (
     <Stack
       as="nav"
@@ -26,11 +29,11 @@ function Nav(props) {
       overflowX="auto"
       {...props}
     >
-      <Link to="#hotel">Hotel</Link>
-      <Link to="#rooms">Rooms</Link>
-      <Link to="#experience">Experience</Link>
-      <Link to="#restaurant">Restaurant</Link>
-      <Link to="#contact">Contact</Link>
+      <Link to="#hotel">{t('nav.hotel')}</Link>
+      <Link to="#rooms">{t('nav.rooms')}</Link>
+      <Link to="#experience">{t('nav.experience')}</Link>
+      <Link to="#restaurant">{t('nav.restaurant')}</Link>
+      <Link to="#contact">{t('nav.contact')}</Link>
     </Stack>
   )
 }

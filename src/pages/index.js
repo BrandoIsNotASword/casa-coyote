@@ -1,7 +1,9 @@
 import React from 'react'
+import { v4 } from 'uuid'
 import { useTranslation } from 'gatsby-plugin-react-i18next'
 import { graphql } from 'gatsby'
 import { Divider, Stack, Button, Box, Text } from '@chakra-ui/core'
+import { GiCutDiamond, GiOakLeaf, GiStarsStack, GiAirtightHatch } from 'react-icons/gi'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
@@ -10,8 +12,8 @@ import Article from '../components/article'
 import Section from '../components/section'
 import GalleryContent from '../components/galleryContent'
 import { H1, H2, H3, H4 } from '../components/globals'
-import FeatureList from '../components/featureList'
-// import EmbedVideo from '../components/embedVideo'
+import { FeatureList, FeatureItem } from '../components/featureList'
+import EmbedVideo from '../components/embedVideo'
 import BookButton from '../components/bookButton'
 import FormContact from '../components/formContact'
 
@@ -25,45 +27,54 @@ function IndexPage({ data }) {
       <Article>
         <Section textAlign="center" id="hotel">
           <H2 fontSize="md" fontWeight="bold" marginBottom={2}>
-            WELCOME TO CASA COYOTE
+            {t('intro.subtitle')}
           </H2>
-          <H1>Eco-Hotel in Tulum, México</H1>
+          <H1>{t('intro.title')}</H1>
           <Text fontWeight="light" maxWidth="600px" marginX="auto" marginTop={4} fontSize="lg">
-            Stay at Casa Coyote, an amazing experience that will free your mind & touch your soul.
-            Very cozy rooms, 100% ECO PRIVATE SUITES, private terrace, fresh and quiet areas,
-            located at the beach side (3 min walk).
+            {t('intro.desc')}
           </Text>
           <Divider maxWidth="600px" marginX="auto" marginY={8} />
-          <FeatureList />
+          <FeatureList>
+            <FeatureItem
+              icon={<GiCutDiamond size="3rem" />}
+              title={t('intro.features.location.title')}
+              desc={t('intro.features.location.desc')}
+            />
+            <FeatureItem
+              icon={<GiOakLeaf size="3rem" />}
+              title={t('intro.features.nature.title')}
+              desc={t('intro.features.nature.desc')}
+            />
+            <FeatureItem
+              icon={<GiStarsStack size="3rem" />}
+              title={t('intro.features.ammenities.title')}
+              desc={t('intro.features.ammenities.desc')}
+            />
+            <FeatureItem
+              icon={<GiAirtightHatch size="3rem" />}
+              title={t('intro.features.private.title')}
+              desc={t('intro.features.private.desc')}
+            />
+          </FeatureList>
         </Section>
 
-        {/* <Section>
+        <Section>
           <EmbedVideo
             height={{ base: '250px', sm: '350px', md: '450px', lg: '550px', xl: '650px' }}
-            url="https://youtu.be/FwB5P5XMymQ"
+            url="https://youtu.be/RyW1PLKzG0A"
           />
-        </Section> */}
+        </Section>
 
         <Section id="rooms">
           <GalleryContent
             images={data.rooms.edges.map((image) => image.node.childImageSharp.fixed.srcWebp)}
           >
-            <H4 marginBottom={2}>MEET OUR ECO-SUITES</H4>
-            <H3>Our Private Rooms</H3>
+            <H4 marginBottom={2}>{t('rooms.subtitle')}</H4>
+            <H3>{t('rooms.title')}</H3>
             <Stack spacing={4} marginTop={4}>
-              <Text>
-                All Rooms have King Size Bed, Fan, Private Bathroom, Mayan Venting, Full Closet,
-                Hand Soap, Body Wash, Organic Shampoo.
-              </Text>
-              <Text>
-                Bath and Beach Towels. Remember that we are here for you at any time & also located
-                at beach side (3 min walk to the beach) at the hotel area, next to Be Tulum, Casa
-                Malca & Nomade.
-              </Text>
-              <Text>
-                5 minutes from the best restaurants, bars & shops area. Next to us we have the best
-                Spa at Tulum Yáan.
-              </Text>
+              {t('rooms.desc', { returnObjects: true }).map((text) => (
+                <Text key={v4()}>{text}</Text>
+              ))}
               <Box>
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119865.80674981946!2d-87.53094803935669!3d20.14212035995232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4fd74b3025cfe9%3A0xb84a5f174207cf7a!2sHotel%20Casa%20Coyote!5e0!3m2!1sen!2smx!4v1595975229358!5m2!1sen!2smx"
@@ -85,24 +96,12 @@ function IndexPage({ data }) {
             reversed
             images={data.experience.edges.map((image) => image.node.childImageSharp.fixed.srcWebp)}
           >
-            <H4 marginBottom={2}>EXPERIENCE TULUM</H4>
-            <H3>Casa Coyote Experience</H3>
+            <H4 marginBottom={2}>{t('experience.subtitle')}</H4>
+            <H3>{t('experience.title')}</H3>
             <Stack spacing={4} marginTop={4}>
-              <Text>
-                Spa offers a wider variety of healing bodywork and energy work to better assist
-                retreat guests in achieving their optimum health goals, both physically and
-                energetically during their stay with us.
-              </Text>
-              <Text>
-                The temazcal is a physical, mental and spiritual purification ceremony. We enter in
-                the inipi to let go of what we don’t need for our daily life, to let go of our fear,
-                anger, depression and every single thing that don’t really belong to us. We have
-                group and couples 90 minute ceremony.
-              </Text>
-              <Text>
-                Sunset experience is an unique opportunity to enjoy the sunset hour in a private
-                terrace. A romantic experience to make a toast, to thanks love and life.
-              </Text>
+              {t('experience.desc', { returnObjects: true }).map((text) => (
+                <Text key={v4()}>{text}</Text>
+              ))}
               <BookButton maxWidth={{ lg: '200px' }} size="lg" />
             </Stack>
           </GalleryContent>
@@ -112,26 +111,12 @@ function IndexPage({ data }) {
           <GalleryContent
             images={data.restaurant.edges.map((image) => image.node.childImageSharp.fixed.srcWebp)}
           >
-            <H4 marginBottom={2}>MEET OUR RESTAURANT</H4>
-            <H3>Loco Tulum</H3>
+            <H4 marginBottom={2}>{t('restaurant.subtitle')}</H4>
+            <H3>{t('restaurant.title')}</H3>
             <Stack spacing={4} marginTop={4}>
-              <Text>
-                Loco Tulum is the idea and philosophy of emphasizing the delight of every flavor,
-                aroma, color and above all, the true taste of each offering. In turn, it tests the
-                senses, and creates a moment of true enjoyment of life.
-              </Text>
-              <Text>
-                In fact, everything in Loco Tulum’s seasonal tasting menu was designed to puzzle,
-                amuse and amaze you. This is done by impresario waiters who enjoy the spectacle as
-                much as you do.
-              </Text>
-              <Text>
-                Behind this masterful display is Chef Idan Lifshitz and his talented culinary team.
-                They have mastered the art of achieving astounding new flavors, textures and aromas.
-                Of course, with the added focus on regional ingredients and sustainable growing
-                practices, you have a dining experience that is both a visual feast and culinary
-                triumph!
-              </Text>
+              {t('restaurant.desc', { returnObjects: true }).map((text) => (
+                <Text key={v4()}>{text}</Text>
+              ))}
               <Button
                 as="a"
                 href="http://locotulum.com/"
@@ -143,16 +128,16 @@ function IndexPage({ data }) {
                 maxWidth={{ lg: '200px' }}
                 size="lg"
               >
-                Visit restaurant
+                {t('restaurant.button')}
               </Button>
             </Stack>
           </GalleryContent>
         </Section>
 
         <Section textAlign="center" maxWidth="100%" backgroundColor="#e3f2f3">
-          <H4>MAGIC TOURS AND EXPERIENCES ARE WAITING FOR YOU</H4>
+          <H4>{t('banner.subtitle')}</H4>
           <Text marginTop={4} fontSize="2xl">
-            Loco Concierge helps you to create the best personalized experience in Tulum. <br />
+            {t('banner.title')}
           </Text>
           <Button
             as="a"
@@ -166,14 +151,14 @@ function IndexPage({ data }) {
             marginTop={4}
             size="lg"
           >
-            Visit site
+            {t('banner.button')}
           </Button>
         </Section>
 
         <Section textAlign="center" id="contact">
-          <H4 marginBottom={2}>CONNECT WITH US</H4>
-          <H3>Send us a message</H3>
-          <Text> Send a message for more information and we'll reach you as soon as posible.</Text>
+          <H4 marginBottom={2}>{t('form.subtitle')}</H4>
+          <H3>{t('form.title')}</H3>
+          <Text>{t('form.desc')}</Text>
           <FormContact />
         </Section>
       </Article>

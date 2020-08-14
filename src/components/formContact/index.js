@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'gatsby-plugin-react-i18next'
 import PropTypes from 'prop-types'
 import { useFormik } from 'formik'
 import { useStaticKit } from '@statickit/react'
@@ -16,6 +17,7 @@ import {
 } from '@chakra-ui/core'
 
 function FormContact({ hideOnSuccess }) {
+  const { t } = useTranslation()
   const [success, setSuccess] = useState()
   const client = useStaticKit()
 
@@ -25,13 +27,13 @@ function FormContact({ hideOnSuccess }) {
       const errors = {}
 
       if (!values.email) {
-        errors.email = 'Email is required'
+        errors.email = t('form.inputs.email.isRequired')
       } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-        errors.email = 'Email is invalid'
+        errors.email = t('form.inputs.email.isInvalid')
       }
 
       if (!values.message) {
-        errors.message = "Message can't be empty"
+        errors.message = t('form.inputs.message.isRequired')
       }
 
       return errors
@@ -53,7 +55,7 @@ function FormContact({ hideOnSuccess }) {
     return (
       <Flex padding={10} justify="center">
         <Text fontWeight="bold" fontSize="xl">
-          Thank you for your message. We'll reach you as soon as possible.
+          {t('form.success')}
         </Text>
       </Flex>
     )
@@ -73,9 +75,9 @@ function FormContact({ hideOnSuccess }) {
         maxWidth={{ lg: '960px' }}
       >
         <FormControl>
-          <FormLabel htmlFor="name">Name</FormLabel>
+          <FormLabel htmlFor="name">{t('form.inputs.name.label')}</FormLabel>
           <Input
-            placeholder="John Matthews"
+            placeholder={t('form.inputs.name.placeholder')}
             id="name"
             name="name"
             value={values.name}
@@ -86,10 +88,10 @@ function FormContact({ hideOnSuccess }) {
 
         <FormControl isInvalid={errors.email && touched.email}>
           <FormLabel isRequired htmlFor="email">
-            Email
+            {t('form.inputs.email.label')}
           </FormLabel>
           <Input
-            placeholder="myemail@example.com"
+            placeholder={t('form.inputs.email.placeholder')}
             id="email"
             type="email"
             name="email"
@@ -102,7 +104,7 @@ function FormContact({ hideOnSuccess }) {
 
         <FormControl isInvalid={errors.message && touched.message}>
           <FormLabel isRequired htmlFor="message">
-            Message
+            {t('form.inputs.message.label')}
           </FormLabel>
           <Textarea
             name="message"
@@ -115,7 +117,7 @@ function FormContact({ hideOnSuccess }) {
         </FormControl>
 
         <Button isDisabled={isSubmitting} type="submit" variantColor="primary" size="lg">
-          Send a message
+          {t('form.inputs.button')}
         </Button>
       </Stack>
     </form>

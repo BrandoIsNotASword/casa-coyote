@@ -1,12 +1,13 @@
 import React from 'react'
-import { useI18next } from 'gatsby-plugin-react-i18next'
+import { useTranslation, useI18next } from 'gatsby-plugin-react-i18next'
 
 import { FiMapPin, FiMail, FiPhone, FiInstagram, FiGlobe } from 'react-icons/fi'
-import { Flex, Image, Box, Text, Stack, Divider, Link, Button } from '@chakra-ui/core'
+import { Flex, Image, Text, Stack, Divider, Link, Button } from '@chakra-ui/core'
 
 import footerLogo from '../../images/casa-coyote-logo-footer.png'
 
 function Footer() {
+  const { t } = useTranslation()
   const { changeLanguage, language } = useI18next()
 
   return (
@@ -28,13 +29,10 @@ function Footer() {
         width="100%"
       >
         <Flex textAlign="center" align="center" direction="column" maxWidth="350px">
-          <Box maxWidth="150px" marginBottom={4}>
+          <Link href="/" maxWidth="150px" marginBottom={4}>
             <Image src={footerLogo} />
-          </Box>
-          <Text>
-            Amazing experience that will free your mind & touch your soul. Very cozy rooms, 100% ECO
-            PRIVATE SUITES. Located at the most exclusive área of Tulum.
-          </Text>
+          </Link>
+          <Text>{t('footer.desc')}</Text>
           <Button
             variant="outline"
             rightIcon={FiGlobe}
@@ -48,7 +46,7 @@ function Footer() {
 
         <Flex marginTop={6} direction="column">
           <Text fontWeight="bold" marginBottom={2}>
-            CONTACT US
+            {t('footer.contact')}
           </Text>
           <Stack spacing={3}>
             <Stack isInline align="center" spacing={3} shouldWrapChildren>
@@ -82,7 +80,7 @@ function Footer() {
       <Divider width="100%" opacity="0.15" marginY={6} />
 
       <Text fontSize="sm" textAlign="center">
-        © Hotel Casa Coyote Tulum. All Rights Reserved. Web design by{' '}
+        {t('footer.terms')}{' '}
         <a
           href="https://hmnagency.com/"
           target="_blank"

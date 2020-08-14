@@ -1,3 +1,96 @@
 {
-  "test": "Test"
+  "nav": {
+    "hotel": "Hotel",
+    "rooms": "Rooms",
+    "experience": "Experience",
+    "restaurant": "Restaurant",
+    "contact": "Contact"
+  },
+  "intro": {
+    "title": "Eco-Hotel in Tulum, México",
+    "subtitle": "WELCOME TO CASA COYOTE",
+    "desc": "Stay at Casa Coyote, an amazing experience that will free your mind & touch your soul. Very cozy rooms, 100% ECO PRIVATE SUITES, private terrace, fresh and quiet areas, located at the beach side (3 min walk).",
+    "features": {
+      "location": {
+        "title": "BEST LOCATION",
+        "desc": "Located next to Be Tulum, Casa Malca & Nomade, 5 minute walking distance from the best restaurants, beach clubs, bars & shopping area."
+      },
+      "nature": {
+        "title": "EXPERIENCE NATURE",
+        "desc": "We offer a unique experience inside the magic energy of Tulum, ideal for couples, families, yogis & solo adventures."
+      },
+      "ammenities": {
+        "title": "AMMENITIES",
+        "desc": "For the spa lovers, 'Yáan Wellness Spa' is next to us. The property has 4 suites and a complete luxury Loft. 1 minute from the taxi station & Free Wifi."
+      },
+      "private": {
+        "title": "PRIVATE ROOM",
+        "desc": "You will feel like home. The property has 4 private rooms, and a complete Luxury Loft with a complete kitchen, fridge, stove, sofa, living room and center table."
+      }
+    }
+  },
+  "rooms": {
+    "title": "Our Private Rooms",
+    "subtitle": "MEET OUR ECO-SUITES",
+    "desc": [
+      "All Rooms have King Size Bed, Fan, Private Bathroom, Mayan Venting, Full Closet, Hand Soap, Body Wash, Organic Shampoo.",
+      "Bath and Beach Towels. Remember that we are here for you at any time & also located at beach side (3 min walk to the beach) at the hotel area, next to Be Tulum, Casa Malca & Nomade.",
+      "5 minutes from the best restaurants, bars & shops area. Next to us we have the best Spa at Tulum Yáan."
+    ]
+  },
+  "experience": {
+    "title": "Casa Coyote Experience",
+    "subtitle": "EXPERIENCE TULUM",
+    "desc": [
+      "Spa offers a wider variety of healing bodywork and energy work to better assist retreat guests in achieving their optimum health goals, both physically and energetically during their stay with us.",
+      "The temazcal is a physical, mental and spiritual purification ceremony. We enter in the inipi to let go of what we don’t need for our daily life, to let go of our fear, anger, depression and every single thing that don’t really belong to us. We have group and couples 90 minute ceremony.",
+      "Sunset experience is an unique opportunity to enjoy the sunset hour in a private terrace. A romantic experience to make a toast, to thanks love and life."
+    ]
+  },
+  "restaurant": {
+    "title": "Loco Tulum",
+    "subtitle": "MEET OUR RESTAURANT",
+    "desc": [
+      "Loco Tulum is the idea and philosophy of emphasizing the delight of every flavor, aroma, color and above all, the true taste of each offering. In turn, it tests the senses, and creates a moment of true enjoyment of life.",
+      "In fact, everything in Loco Tulum’s seasonal tasting menu was designed to puzzle, amuse and amaze you. This is done by impresario waiters who enjoy the spectacle as much as you do.",
+      "Behind this masterful display is Chef Idan Lifshitz and his talented culinary team. They have mastered the art of achieving astounding new flavors, textures and aromas. Of course, with the added focus on regional ingredients and sustainable growing practices, you have a dining experience that is both a visual feast and culinary triumph!"
+    ],
+    "button": "Visit restaurant"
+  },
+  "banner": {
+    "title": "Loco Concierge helps you to create the best personalized experience in Tulum.",
+    "subtitle": "MAGIC TOURS AND EXPERIENCES ARE WAITING FOR YOU",
+    "button": "Visit site"
+  },
+  "form": {
+    "title": "Send us a message",
+    "subtitle": "CONNECT WITH US",
+    "desc": "Send a message for more information and we'll reach you as soon as posible.",
+    "inputs": {
+      "name": {
+        "label": "Name",
+        "placeholder": "John Matthews"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "myemail@example.com",
+        "isRequired": "Email is required",
+        "isInvalid": "Email is invalid"
+      },
+      "message": {
+        "label": "Message",
+        "isRequired": "Message can't be empty"
+      },
+      "button": "Send message"
+    },
+    "success": "Thank you for your message. We'll reach you as soon as possible."
+  },
+  "footer": {
+    "desc": "Amazing experience that will free your mind & touch your soul. Very cozy rooms, 100% ECO PRIVATE SUITES. Located at the most exclusive área of Tulum.",
+    "contact": "CONTACT US",
+    "terms": "© Hotel Casa Coyote Tulum. All Rights Reserved. Web development by"
+  },
+  "commons": {
+    "bookNow": "Book now"
+  }
 }
