@@ -88,7 +88,11 @@
   "footer": {
     "desc": "Amazing experience that will free your mind & touch your soul. Very cozy rooms, 100% ECO PRIVATE SUITES. Located at the most exclusive área of Tulum.",
     "contact": "CONTACT US",
-    "terms": "© Hotel Casa Coyote Tulum. All Rights Reserved. Web development by"
+    "terms": "© Hotel Casa Coyote Tulum. All Rights Reserved. Web development by",
+    "floatingBookNow": {
+      "title": "100% eco-private suites.",
+      "subtitle": "Eco-hotel in Tulum"
+    }
   },
   "commons": {
     "bookNow": "Book now"

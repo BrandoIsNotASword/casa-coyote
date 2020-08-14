@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Modal, ModalOverlay, ModalContent, useTheme } from '@chakra-ui/core'
 
-function BookingModal({ isOpen, onClose }) {
+function BookingModal({ isOpen, lang, onClose }) {
   const theme = useTheme()
 
   useEffect(() => {
@@ -22,7 +22,7 @@ function BookingModal({ isOpen, onClose }) {
           <iframe
             title="Booking Engine"
             style={{ height: '100vh', width: '100%' }}
-            src="https://rbe.zaviaerp.com/?zbe_hotel_id=259&lng=en"
+            src={`https://rbe.zaviaerp.com/?zbe_hotel_id=259&lng=${lang}`}
           />
         </ModalContent>
       </Modal>
@@ -32,11 +32,13 @@ function BookingModal({ isOpen, onClose }) {
 
 BookingModal.propTypes = {
   isOpen: PropTypes.bool,
+  lang: PropTypes.string,
   onClose: PropTypes.func,
 }
 
 BookingModal.defaultProps = {
   isOpen: false,
+  lang: 'en',
   onClose: () => {},
 }
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useI18next } from 'gatsby-plugin-react-i18next'
 import { useRecoilState } from 'recoil'
 import PropTypes from 'prop-types'
 import { Global, css } from '@emotion/core'
@@ -94,6 +95,7 @@ const globalStyles = css`
 `
 
 function Layout({ children }) {
+  const { language } = useI18next()
   const [isBookingModalOpen, setIsBookingModalOpen] = useRecoilState(bookingModalState)
 
   return (
@@ -109,7 +111,11 @@ function Layout({ children }) {
       </Flex>
       <WhatsappButton text="Hi, I want more information about Casa Coyote..." />
       <FloatingBookNow />
-      <BookingModal isOpen={isBookingModalOpen} onClose={() => setIsBookingModalOpen(false)} />
+      <BookingModal
+        lang={language}
+        isOpen={isBookingModalOpen}
+        onClose={() => setIsBookingModalOpen(false)}
+      />
     </ThemeProvider>
   )
 }

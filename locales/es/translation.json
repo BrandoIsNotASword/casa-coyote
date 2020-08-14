@@ -88,7 +88,11 @@
   "footer": {
     "desc": "Una experiencia increíble que liberará tu mente y tocará tu alma. Habitaciones muy acogedoras, trajes 100% ECO PRIVADOS. Ubicado en la zona más exclusiva de Tulum.",
     "contact": "CONTÁCTANOS",
-    "terms": "© Hotel Casa Coyote Tulum. Todos los derechos reservados. Desarrollo web por"
+    "terms": "© Hotel Casa Coyote Tulum. Todos los derechos reservados. Desarrollo web por",
+    "floatingBookNow": {
+      "title": "100% habitacion eco-privadas.",
+      "subtitle": "Eco-hotel en Tulum"
+    }
   },
   "commons": {
     "bookNow": "Reserva ahora"
