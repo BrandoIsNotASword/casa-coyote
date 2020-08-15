@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'gatsby-plugin-react-i18next'
 import { v4 } from 'uuid'
 import PropTypes from 'prop-types'
 import { Flex, Box } from '@chakra-ui/core'
@@ -6,6 +7,8 @@ import { Flex, Box } from '@chakra-ui/core'
 import Carousel from '../../components/carousel'
 
 function GalleryContent({ children, images, reversed }) {
+  const { t } = useTranslation()
+
   return (
     <Flex direction={{ base: 'column', lg: 'row' }} minHeight={{ lg: '500px' }}>
       <Flex
@@ -28,7 +31,7 @@ function GalleryContent({ children, images, reversed }) {
         position="relative"
         marginBottom={{ base: 6, lg: 0 }}
       >
-        <Carousel>
+        <Carousel nextText={t('commons.nextText')} prevText={t('commons.prevText')}>
           {images.length !== 0 &&
             images.map((image) => (
               <Box

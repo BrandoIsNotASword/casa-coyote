@@ -4,7 +4,7 @@ import { Flex, Image, Text, Box } from '@chakra-ui/core'
 
 import heroLogo from '../../images/hero-logo.png'
 
-function Hero({ bg }) {
+function Hero({ bg, text }) {
   return (
     <Flex
       background={`linear-gradient(rgba(0, 0, 0, 0.45) 100%, rgba(0, 0, 0, 0.45) 100%), url(${bg})`}
@@ -28,7 +28,7 @@ function Hero({ bg }) {
           fontSize={{ base: 'xl', md: '2xl' }}
           maxWidth={{ base: '300px', md: '400px' }}
         >
-          100% eco-hotel with private suites in Tulum, México.
+          {text}
         </Text>
       </Box>
     </Flex>
@@ -37,10 +37,12 @@ function Hero({ bg }) {
 
 Hero.propTypes = {
   bg: PropTypes.string,
+  text: PropTypes.string,
 }
 
 Hero.defaultProps = {
   bg: '',
+  text: '',
 }
 
 export default Hero

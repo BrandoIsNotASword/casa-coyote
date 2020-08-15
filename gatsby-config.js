@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Casa Coyote`,
+    title: `Casa Coyote 100% eco-hotel in Tulum, México`,
     description: `100% eco-hotel with private suites in Tulum, México.`,
     author: `@gatsbyjs`,
   },

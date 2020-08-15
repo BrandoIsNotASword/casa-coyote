@@ -23,7 +23,7 @@ function IndexPage({ data }) {
   return (
     <Layout>
       <SEO title="Home" />
-      <Hero bg={data.hero.childImageSharp.fixed.srcWebp} />
+      <Hero bg={data.hero.childImageSharp.fixed.srcWebp} text={t('hero')} />
       <Article>
         <Section textAlign="center" id="hotel">
           <H2 fontSize="md" fontWeight="bold" marginBottom={2}>

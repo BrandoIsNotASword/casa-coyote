@@ -1,9 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Box, Button } from '@chakra-ui/core'
 import { default as NukaCarousel } from 'nuka-carousel'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 
-function Carousel({ children, ...restProps }) {
+function Carousel({ nextText, prevText, children, ...restProps }) {
   return (
     <Box overflow="hidden" backgroundColor="gray.100" position="relative" {...restProps}>
       <NukaCarousel
@@ -18,7 +19,7 @@ function Carousel({ children, ...restProps }) {
             color="white"
             _hover={{ backgroundColor: 'rgba(0,0,0,0.75)' }}
           >
-            Prev
+            {prevText}
           </Button>
         )}
         renderBottomRightControls={({ nextSlide, currentSlide }) => (
@@ -30,7 +31,7 @@ function Carousel({ children, ...restProps }) {
             color="white"
             _hover={{ backgroundColor: 'rgba(0,0,0,0.75)' }}
           >
-            Next
+            {nextText}
           </Button>
         )}
         disableEdgeSwiping
@@ -45,6 +46,18 @@ function Carousel({ children, ...restProps }) {
       </NukaCarousel>
     </Box>
   )
+}
+
+Carousel.propTypes = {
+  nextText: PropTypes.string,
+  prevText: PropTypes.string,
+  children: PropTypes.node,
+}
+
+Carousel.defaultProps = {
+  nextText: 'Next',
+  prevText: 'Prev',
+  children: null,
 }
 
 export default Carousel

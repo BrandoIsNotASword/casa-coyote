@@ -6,6 +6,7 @@
     "restaurant": "Restaurante",
     "contact": "Contacto"
   },
+  "hero": "100% eco-hotel con suites privadas en Tulum, México.",
   "intro": {
     "title": "Eco-Hotel en Tulum, México",
     "subtitle": "BIENVENIDO A CASA COYOTE",
@@ -95,6 +96,8 @@
     }
   },
   "commons": {
-    "bookNow": "Reserva ahora"
+    "bookNow": "Reserva ahora",
+    "nextText": "Sig.",
+    "prevText": "Ant."
   }
 }
