@@ -2,7 +2,7 @@ import React from 'react'
 import { v4 } from 'uuid'
 import { useTranslation } from 'gatsby-plugin-react-i18next'
 import { graphql } from 'gatsby'
-import { Divider, Stack, Button, Box, Text } from '@chakra-ui/core'
+import { Image, Divider, Stack, Button, Box, Text, Flex } from '@chakra-ui/core'
 import { GiCutDiamond, GiOakLeaf, GiStarsStack, GiAirtightHatch } from 'react-icons/gi'
 
 import Layout from '../components/layout'
@@ -17,13 +17,16 @@ import EmbedVideo from '../components/embedVideo'
 import BookButton from '../components/bookButton'
 import FormContact from '../components/formContact'
 
+import tripadvisor from '../images/tripadvisor.png'
+
 function IndexPage({ data }) {
+  console.log(data)
   const { t } = useTranslation()
 
   return (
     <Layout>
       <SEO title="Home" />
-      <Hero bg={data.hero.childImageSharp.fixed.srcWebp} text={t('hero')} />
+      <Hero bg={data.hero.childImageSharp.fixed.src} text={t('hero')} />
       <Article>
         <Section textAlign="center" id="hotel">
           <H2 fontSize="md" fontWeight="bold" marginBottom={2}>
@@ -67,7 +70,7 @@ function IndexPage({ data }) {
 
         <Section id="rooms">
           <GalleryContent
-            images={data.rooms.edges.map((image) => image.node.childImageSharp.fixed.srcWebp)}
+            images={data.rooms.edges.map((image) => image.node.childImageSharp.fixed.src)}
           >
             <H4 marginBottom={2}>{t('rooms.subtitle')}</H4>
             <H3>{t('rooms.title')}</H3>
@@ -77,7 +80,7 @@ function IndexPage({ data }) {
               ))}
               <Box>
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119865.80674981946!2d-87.53094803935669!3d20.14212035995232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4fd74b3025cfe9%3A0xb84a5f174207cf7a!2sHotel%20Casa%20Coyote!5e0!3m2!1sen!2smx!4v1595975229358!5m2!1sen!2smx"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119867.30049297537!2d-87.51628317897949!3d20.140173585968363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4fd74cf63f31e1%3A0x905609cdd99ba908!2sCasa%20Coyote%20Tulum!5e0!3m2!1sen!2smx!4v1598066920612!5m2!1sen!2smx"
                   width="100%"
                   height="100%"
                   frameBorder="0"
@@ -94,7 +97,7 @@ function IndexPage({ data }) {
         <Section id="experience">
           <GalleryContent
             reversed
-            images={data.experience.edges.map((image) => image.node.childImageSharp.fixed.srcWebp)}
+            images={data.experience.edges.map((image) => image.node.childImageSharp.fixed.src)}
           >
             <H4 marginBottom={2}>{t('experience.subtitle')}</H4>
             <H3>{t('experience.title')}</H3>
@@ -109,7 +112,7 @@ function IndexPage({ data }) {
 
         <Section id="restaurant">
           <GalleryContent
-            images={data.restaurant.edges.map((image) => image.node.childImageSharp.fixed.srcWebp)}
+            images={data.restaurant.edges.map((image) => image.node.childImageSharp.fixed.src)}
           >
             <H4 marginBottom={2}>{t('restaurant.subtitle')}</H4>
             <H3>{t('restaurant.title')}</H3>
@@ -117,19 +120,22 @@ function IndexPage({ data }) {
               {t('restaurant.desc', { returnObjects: true }).map((text) => (
                 <Text key={v4()}>{text}</Text>
               ))}
-              <Button
-                as="a"
-                href="http://locotulum.com/"
-                target="_blank"
-                rel="noopener nofollow"
-                variant="outline"
-                variantColor="primary"
-                _hover={{ color: 'none' }}
-                maxWidth={{ lg: '200px' }}
-                size="lg"
-              >
-                {t('restaurant.button')}
-              </Button>
+              <Flex justify="space-between">
+                <Button
+                  as="a"
+                  href="http://locotulum.com/"
+                  target="_blank"
+                  rel="noopener nofollow"
+                  variant="outline"
+                  variantColor="primary"
+                  _hover={{ color: 'none' }}
+                  maxWidth={{ lg: '200px' }}
+                  size="lg"
+                >
+                  {t('restaurant.button')}
+                </Button>
+                <Image maxWidth="100px" src={tripadvisor} />
+              </Flex>
             </Stack>
           </GalleryContent>
         </Section>
@@ -171,8 +177,8 @@ export const query = graphql`
     edges {
       node {
         childImageSharp {
-          fixed(width: 720, quality: 75) {
-            ...GatsbyImageSharpFixed_withWebp
+          fixed(width: 860, quality: 75) {
+            ...GatsbyImageSharpFixed
           }
         }
       }
@@ -183,20 +189,26 @@ export const query = graphql`
     hero: file(relativePath: { eq: "background-casa-coyote.jpeg" }) {
       childImageSharp {
         fixed(width: 1440, quality: 65) {
-          ...GatsbyImageSharpFixed_withWebp
+          ...GatsbyImageSharpFixed
         }
       }
     }
 
-    rooms: allFile(filter: { relativeDirectory: { eq: "rooms" } }) {
+    rooms: allFile(filter: { relativeDirectory: { eq: "rooms" } }, sort: { fields: name }) {
       ...multipleFixedImage
     }
 
-    experience: allFile(filter: { relativeDirectory: { eq: "experience" } }) {
+    experience: allFile(
+      filter: { relativeDirectory: { eq: "experience" } }
+      sort: { fields: name }
+    ) {
       ...multipleFixedImage
     }
 
-    restaurant: allFile(filter: { relativeDirectory: { eq: "restaurant" } }) {
+    restaurant: allFile(
+      filter: { relativeDirectory: { eq: "restaurant" } }
+      sort: { fields: name }
+    ) {
       ...multipleFixedImage
     }
   }

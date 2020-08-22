@@ -6,7 +6,12 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-chakra-ui`,
+    {
+      resolve: 'gatsby-plugin-chakra-ui',
+      options: {
+        isUsingColorMode: false,
+      },
+    },
     `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -48,7 +53,7 @@ module.exports = {
         path: `${__dirname}/locales`,
         languages: [`en`, `es`],
         defaultLanguage: `en`,
-        redirect: true,
+        redirect: false,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

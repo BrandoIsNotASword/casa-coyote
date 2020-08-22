@@ -6,7 +6,7 @@ import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 
 function Carousel({ nextText, prevText, children, ...restProps }) {
   return (
-    <Box overflow="hidden" backgroundColor="gray.100" position="relative" {...restProps}>
+    <Box overflow="hidden" position="relative" {...restProps}>
       <NukaCarousel
         renderCenterRightControls={null}
         renderCenterLeftControls={null}

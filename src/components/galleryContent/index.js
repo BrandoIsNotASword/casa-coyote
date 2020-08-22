@@ -26,7 +26,6 @@ function GalleryContent({ children, images, reversed }) {
         order={{ base: 0, lg: reversed ? 0 : 1 }}
         flexShrink={0}
         flexBasis="50%"
-        backgroundColor="gray.100"
         overflow="hidden"
         position="relative"
         marginBottom={{ base: 6, lg: 0 }}

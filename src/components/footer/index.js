@@ -5,6 +5,7 @@ import { FiMapPin, FiMail, FiPhone, FiInstagram, FiGlobe } from 'react-icons/fi'
 import { Flex, Image, Text, Stack, Divider, Link, Button } from '@chakra-ui/core'
 
 import footerLogo from '../../images/casa-coyote-logo-footer.png'
+import grupoManifestoLogo from '../../images/grupo-manifesto-logo.png'
 
 function Footer() {
   const { t } = useTranslation()
@@ -73,6 +74,13 @@ function Footer() {
                 <Text>casa_coyote</Text>
               </Stack>
             </Link>
+            <Image
+              height="100%"
+              width="100%"
+              marginX="auto"
+              maxWidth="100px"
+              src={grupoManifestoLogo}
+            />
           </Stack>
         </Flex>
       </Flex>
