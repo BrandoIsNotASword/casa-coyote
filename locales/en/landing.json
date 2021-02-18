@@ -3,7 +3,7 @@
     "title": "Up To 45% Discount. Casa Coyote Tulum. Early Booking",
     "hero": {
       "title": "Up To 45% Discount",
-      "desc": "Get the best deal, book your vacation now. Beach club included. 100% mexican food.",
+      "desc": "Get the best deal, book your vacation now. Beach club included. 100% mediterranean food.",
       "terms": "Terms and conditions may apply. Subject to availability."
     },
     "floatingBookNow": {
@@ -12,10 +12,10 @@
     }
   },
   "lastminute": {
-    "title": "Best Rate Available. Casa Coyote Tulum. Last Minute Reservation",
+    "title": "Best Available Rate. Casa Coyote Tulum. Last Minute Reservation",
     "hero": {
       "title": "Best Rate Available",
-      "desc": "Last rooms available, book now. Beach club included. 100% mexican food.",
+      "desc": "Last rooms available, book now. Beach club included. 100% mediterranean food.",
       "terms": "Terms and conditions may apply. Subject to availability."
     },
     "floatingBookNow": {
@@ -47,8 +47,8 @@
         "desc": "When you book at Casa Coyote you will have access to the Dos Ceibas Beach Club just a few steps from the hotel."
       },
       "three": {
-        "title": "Delicious mexican food",
-        "desc": "Enjoy our restaurant Loco Tulum, one of the most awarded by Tripadvisor and our guests. 100% mexican food."
+        "title": "Delicious mediterranean food",
+        "desc": "Enjoy our restaurant Loco Tulum, one of the most awarded by Tripadvisor and our guests. 100% mediterranean food."
       }
     }
   },

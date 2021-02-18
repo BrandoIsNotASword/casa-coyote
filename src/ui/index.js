@@ -10,6 +10,7 @@ import { Footer, FooterColumn, FooterBody, FooterDivider, FooterBottom } from '.
 import FeaturedBanner from './featuredBanner'
 import FloatingBanner from './floatingBanner'
 import Modal from './modal'
+import Popup from './popup'
 import Carousel from './carousel'
 import Gallery from './gallery'
 import { Accordion, AccordionItem } from './accordion'
@@ -39,6 +40,7 @@ export {
   H3,
   H4,
   P,
+  Popup,
   FeatureList,
   FeatureItem,
   CategoryList,

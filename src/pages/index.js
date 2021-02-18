@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { v4 } from 'uuid'
 import { useTranslation } from 'gatsby-plugin-react-i18next'
-import { Box, Flex, Button, Stack } from '@chakra-ui/react'
+import { Box, Flex, Button, Stack, Heading } from '@chakra-ui/react'
 
 import {
   Article,
@@ -20,6 +20,8 @@ import {
   Gallery,
   ColContent,
   Image,
+  FeatureList,
+  FeatureItem,
 } from '../ui'
 
 import Layout from '../components/layout'
@@ -35,33 +37,79 @@ function IndexPage({ data }) {
 
   return (
     <Layout title={t('index:title')}>
-      <Hero
-        image={
-          <Image
-            fluid={data.hero.childImageSharp.fluid}
-            layout="background"
-            style={{ opacity: 0.5 }}
-          />
-        }
-        height={{ base: '350px', sm: '450px', md: '500px' }}
+      <Section
+        paddingTop="0"
+        paddingBottom="0"
+        fullWidth
+        color="white"
+        position="relative"
+        spacing="0"
       >
-        <HeroBody
+        <Stack
+          position="absolute"
+          width="100%"
+          height="100%"
           justifyContent={{ base: 'flex-end', md: 'center' }}
-          maxWidth={{ base: '300px', md: '400px' }}
-          marginX={{ base: 'auto', md: 'initial' }}
-          paddingBottom={{ base: 8, md: 0 }}
+          zIndex="1"
+          paddingRight={{ base: 6, md: 14, xl: 20 }}
+          paddingLeft={{ base: 6, md: 14, xl: 20 }}
+          pointerEvents="none"
+          maxWidth="700px"
         >
-          <Flex justifyContent="center" width="100%">
-            <img style={{ height: 'auto', width: '100%' }} src={heroLogo} />
-          </Flex>
-          <HeroSubtitle as="h1" textAlign="center">
-            {t('index:hero')}
-          </HeroSubtitle>
-          <HeroCta display="flex" width="100%" justifyContent="center" marginTop={2}>
-            <ButtonBook size="lg" />
-          </HeroCta>
-        </HeroBody>
-      </Hero>
+          <HeroBody
+            justifyContent={{ base: 'flex-end', md: 'center' }}
+            maxWidth={{ base: '300px', md: '400px' }}
+            marginX={{ base: 'auto', md: 'initial' }}
+            paddingBottom={{ base: 8, md: 0 }}
+          >
+            <Flex alignItems="flex-start" justifyContent="center" width="100%">
+              <img style={{ width: '100%' }} src={heroLogo} />
+            </Flex>
+            <HeroSubtitle as="h1" textAlign="center">
+              {t('index:hero')}
+            </HeroSubtitle>
+            <HeroCta display="flex" width="100%" justifyContent="center" marginTop={2}>
+              <ButtonBook pointerEvents="all" color="initial" size="lg" />
+            </HeroCta>
+          </HeroBody>
+        </Stack>
+
+        <Carousel>
+          <FeaturedBanner
+            opacity="0.85"
+            height={{ base: '350px', md: '450px', lg: '500px' }}
+            image={
+              <Image
+                fluid={data.hero1.childImageSharp.fluid}
+                layout="background"
+                style={{ opacity: 0.5 }}
+              />
+            }
+          />
+          <FeaturedBanner
+            opacity="0.85"
+            height={{ base: '350px', md: '450px', lg: '500px' }}
+            image={
+              <Image
+                fluid={data.hero2.childImageSharp.fluid}
+                layout="background"
+                style={{ opacity: 0.5 }}
+              />
+            }
+          />
+          <FeaturedBanner
+            opacity="0.85"
+            height={{ base: '350px', lg: '500px' }}
+            image={
+              <Image
+                fluid={data.hero3.childImageSharp.fluid}
+                layout="background"
+                style={{ opacity: 0.5 }}
+              />
+            }
+          />
+        </Carousel>
+      </Section>
 
       <Article>
         <Section
@@ -87,9 +135,10 @@ function IndexPage({ data }) {
           </RowContent>
         </Section>
 
-        <Section id="experience">
+        <Section id="experience" spacing={10}>
           <RowContent reversedInMobile>
             <ColInfo
+              height={{ lg: '400px' }}
               title={t('index:experience.title')}
               backgroundColor="primary.900"
               color="white"
@@ -103,7 +152,7 @@ function IndexPage({ data }) {
               <Gallery
                 paddingBottom="0"
                 marginBottom="0"
-                height="100%"
+                height={{ lg: '100%' }}
                 images={data.gallery.edges.map((image) => (
                   <Image key={v4()} fixed={image.node.childImageSharp.fixed} layout="background" />
                 ))}
@@ -111,6 +160,69 @@ function IndexPage({ data }) {
               />
             </ColContent>
           </RowContent>
+
+          <FeatureList columns={2}>
+            <FeatureItem
+              direction={{ base: 'column', md: 'row' }}
+              icon={
+                <Box
+                  height="125px"
+                  width="125px"
+                  borderRadius="15px"
+                  position="relative"
+                  overflow="hidden"
+                >
+                  <Image fixed={data.temazcal.childImageSharp.fixed} layout="background" />
+                </Box>
+              }
+              desc={
+                <Stack>
+                  <Heading as="h4" fontWeight="bold" fontSize="xl">
+                    Temazcal Casa Coyote
+                  </Heading>
+                  <P>
+                    El spa ofrece una variedad más amplia de trabajo corporal y energético curativo
+                    para ayudar mejor a los huéspedes del retiro a alcanzar sus objetivos de salud
+                    óptimos, tanto física como energéticamente durante su estancia con nosotros.
+                  </P>
+                  <Button colorScheme="teal" width="fit-content">
+                    Book a session
+                  </Button>
+                </Stack>
+              }
+            />
+            <FeatureItem
+              direction={{ base: 'column', md: 'row' }}
+              icon={
+                <Box
+                  height="125px"
+                  width="125px"
+                  borderRadius="15px"
+                  position="relative"
+                  overflow="hidden"
+                >
+                  <Image fixed={data.spa.childImageSharp.fixed} layout="background" />
+                </Box>
+              }
+              desc={
+                <Stack>
+                  <Heading as="h4" fontWeight="bold" fontSize="xl">
+                    Spa Casa Coyote
+                  </Heading>
+                  <P>
+                    El temazcal es una ceremonia de purificación física, mental y espiritual.
+                    Entramos en el inipi para dejar ir lo que no necesitamos para nuestra vida
+                    diaria, para dejar ir nuestro miedo, ira, depresión y todas las cosas que
+                    realmente no nos pertenecen. Tenemos una ceremonia de 90 minutos en grupo y en
+                    pareja.
+                  </P>
+                  <Button colorScheme="teal" width="fit-content">
+                    Book a session
+                  </Button>
+                </Stack>
+              }
+            />
+          </FeatureList>
         </Section>
 
         <Section
@@ -120,76 +232,56 @@ function IndexPage({ data }) {
           fullWidth
           color="white"
           position="relative"
+          spacing={0}
         >
-          <Stack
-            position="absolute"
-            width="100%"
-            height="100%"
-            justifyContent="center"
-            zIndex="1"
-            paddingRight={{ base: 6, md: 14, xl: 20 }}
-            paddingLeft={{ base: 6, md: 14, xl: 20 }}
-            pointerEvents="none"
-            maxWidth="700px"
+          <FeaturedBanner
+            opacity="0.35"
+            height={{ base: '350px', lg: '500px' }}
+            alignItems="flex-start"
+            image={
+              <Image
+                fluid={data.bgLoco.childImageSharp.fluid}
+                layout="background"
+                style={{ opacity: 0.5 }}
+              />
+            }
           >
-            <Flex>
-              <Flex justifyContent="center" width={{ base: '200px', md: '300px' }} flexShrink="0">
-                <img src={locoLogo} />
+            <Stack
+              width="100%"
+              height="100%"
+              paddingRight={{ base: 6, md: 14, xl: 20 }}
+              paddingLeft={{ base: 6, md: 14, xl: 20 }}
+              maxWidth="700px"
+              alignItems="flex-start"
+            >
+              <Flex>
+                <Flex
+                  alignItems="flex-start"
+                  justifyContent="center"
+                  width={{ base: '200px', md: '300px' }}
+                  flexShrink="0"
+                >
+                  <img src={locoLogo} />
+                </Flex>
               </Flex>
-            </Flex>
-            <P fontSize="lg" fontWeight="bold">
-              {t('index:restaurant.subtitle')}
-            </P>
-            <P>{t('index:restaurant.desc')}</P>
-            <P fontSize="2xl" textAlign="center"></P>
-            <Box pointerEvents="initial">
-              <Button
-                href="http://locotulum.com/"
-                as="a"
-                colorScheme="gray"
-                color="initial"
-                target="_blank"
-              >
-                {t('common:visitRestaurant')}
-              </Button>
-            </Box>
-          </Stack>
-
-          <Carousel>
-            <FeaturedBanner
-              opacity="0.35"
-              height={{ base: '350px', lg: '500px' }}
-              image={
-                <Image
-                  fluid={data.bgLoco1.childImageSharp.fluid}
-                  layout="background"
-                  style={{ opacity: 0.5 }}
-                />
-              }
-            />
-            <FeaturedBanner
-              opacity="0.35"
-              height={{ base: '350px', lg: '500px' }}
-              image={
-                <Image
-                  fluid={data.bgLoco2.childImageSharp.fluid}
-                  layout="background"
-                  style={{ opacity: 0.5 }}
-                />
-              }
-            />
-            <FeaturedBanner
-              opacity="0.35"
-              height={{ base: '350px', lg: '500px' }}
-              image={
-                <Image
-                  fluid={data.bgLoco3.childImageSharp.fluid}
-                  layout="background"
-                  style={{ opacity: 0.5 }}
-                />
-              }
-            />
-          </Carousel>
+              <P fontSize="lg" fontWeight="bold">
+                {t('index:restaurant.subtitle')}
+              </P>
+              <P>{t('index:restaurant.desc')}</P>
+              <P fontSize="2xl" textAlign="center"></P>
+              <Box pointerEvents="initial">
+                <Button
+                  href="http://locotulum.com/"
+                  as="a"
+                  colorScheme="gray"
+                  color="initial"
+                  target="_blank"
+                >
+                  {t('common:visitRestaurant')}
+                </Button>
+              </Box>
+            </Stack>
+          </FeaturedBanner>
         </Section>
 
         <Section
@@ -234,7 +326,15 @@ function IndexPage({ data }) {
 
 export const query = graphql`
   query {
-    hero: file(relativePath: { eq: "index/background.jpg" }) {
+    hero1: file(relativePath: { eq: "index/background3.jpeg" }) {
+      ...bannerSectionImage
+    }
+
+    hero2: file(relativePath: { eq: "index/background2.png" }) {
+      ...bannerSectionImage
+    }
+
+    hero3: file(relativePath: { eq: "index/background.jpg" }) {
       ...bannerSectionImage
     }
 
@@ -249,15 +349,15 @@ export const query = graphql`
       ...fixedImage
     }
 
-    bgLoco1: file(relativePath: { eq: "index/background-loco-tulum.jpg" }) {
-      ...bannerSectionImage
+    temazcal: file(relativePath: { eq: "index/temazcal.jpg" }) {
+      ...fixedImage
     }
 
-    bgLoco2: file(relativePath: { eq: "index/background-loco-tulum-2.jpg" }) {
-      ...bannerSectionImage
+    spa: file(relativePath: { eq: "index/spa.jpg" }) {
+      ...fixedImage
     }
 
-    bgLoco3: file(relativePath: { eq: "index/background-loco-tulum-3.jpg" }) {
+    bgLoco: file(relativePath: { eq: "index/background-loco-tulum.jpg" }) {
       ...bannerSectionImage
     }
   }

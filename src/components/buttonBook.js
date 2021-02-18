@@ -25,12 +25,13 @@ function ButtonBook({ children, arrival, departure, promotion, ...restProps }) {
       onClick={() => setBookingModal((obj) => ({ ...obj, isOpen: true }))}
       {...restProps}
     >
-      {t('common:bookNow')}
+      {children || t('common:bookNow')}
     </Button>
   )
 }
 
 ButtonBook.propTypes = {
+  children: PropTypes.node,
   colorScheme: PropTypes.string,
   arrival: PropTypes.string,
   departure: PropTypes.string,
@@ -38,6 +39,7 @@ ButtonBook.propTypes = {
 }
 
 ButtonBook.defaultProps = {
+  children: null,
   colorScheme: 'gray',
   arrival: '',
   departure: '',

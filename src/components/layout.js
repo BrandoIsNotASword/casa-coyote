@@ -18,6 +18,7 @@ import {
   P,
   BookingModal,
   WhatsappButton,
+  Popup,
 } from '../ui'
 
 import SocialLinks from './socialLinks'
@@ -26,8 +27,11 @@ import FloatingBook from './floatingBook'
 
 import { bookingModalState } from '../store'
 import SEO from './seo'
+import ButtonBook from './buttonBook'
 
 import logoFooter from '../images/casa-coyote-logo-footer.png'
+import popupEn from '../images/popup-last-minute-en.jpg'
+import popupEs from '../images/popup-last-minute-es.jpg'
 
 const globalStyles = css`
   @font-face {
@@ -101,8 +105,8 @@ function Layout({
         <FooterBody>
           <FooterColumn align="center">
             <Link to="/">
-              <Flex width={{ base: '200px', md: '250px' }} marginX="auto">
-                <img style={{ height: 'auto', width: '100%' }} src={logoFooter} />
+              <Flex alignItems="flex-start" width={{ base: '200px', md: '250px' }} marginX="auto">
+                <img src={logoFooter} />
               </Flex>
             </Link>
             <P textAlign="center">{t('common:footer.desc')}</P>
@@ -159,6 +163,20 @@ function Layout({
           desc={t('common:floatingBanner.desc')}
           colorScheme="red"
         />
+      )}
+
+      {!disablePopup && (
+        <Popup>
+          <ButtonBook
+            width="100%"
+            height="100%"
+            promotion="lastminute"
+            arrival="2021-02-15"
+            departure="2021-02-16"
+          >
+            <img style={{ width: '100%' }} src={language === 'es' ? popupEs : popupEn} />
+          </ButtonBook>
+        </Popup>
       )}
 
       <BookingModal

@@ -32,6 +32,7 @@ function EarlyBookingPage({ data }) {
           justifyContent="center"
         >
           <Flex
+            alignItems="flex-start"
             justifyContent="center"
             width="100%"
             maxWidth="150px"
@@ -40,7 +41,7 @@ function EarlyBookingPage({ data }) {
             marginX="auto"
             opacity="0.85"
           >
-            <img style={{ height: 'auto', width: '100%' }} src={logo} />
+            <img style={{ width: '100%' }} src={logo} />
           </Flex>
           <H1 color="white" fontSize="5xl" textAlign="center">
             {t('landing:earlybooking.hero.title')}
