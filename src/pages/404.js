@@ -1,14 +1,28 @@
 import React from 'react'
+import { useTranslation } from 'gatsby-plugin-react-i18next'
+import { Link } from 'gatsby-plugin-react-i18next'
 
 import Layout from '../components/layout'
-import SEO from '../components/seo'
 
-const NotFoundPage = () => (
-  <Layout>
-    <SEO title="404: Not found" />
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </Layout>
-)
+import { Flex, Button } from '@chakra-ui/react'
+import { Article, Section } from '../ui'
+
+function NotFoundPage() {
+  const { t } = useTranslation()
+
+  return (
+    <Layout title={t('404:title')} variantHeader="solid">
+      <Article>
+        <Section title={t('404:title')} subtitle={t('404:subtitle')} titleAlign="center">
+          <Flex justifyContent="center">
+            <Button as={Link} to="/">
+              {t('404:button')}
+            </Button>
+          </Flex>
+        </Section>
+      </Article>
+    </Layout>
+  )
+}
 
 export default NotFoundPage

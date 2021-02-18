@@ -1,0 +1,79 @@
+{
+  "earlybooking": {
+    "title": "Up To 45% Discount. Casa Coyote Tulum. Early Booking",
+    "hero": {
+      "title": "Up To 45% Discount",
+      "desc": "Get the best deal, book your vacation now. Beach club included. 100% mexican food.",
+      "terms": "Terms and conditions may apply. Subject to availability."
+    },
+    "floatingBookNow": {
+      "title": "Up To 45% Discount",
+      "desc": "Get the best deal, guaranteed"
+    }
+  },
+  "lastminute": {
+    "title": "Best Rate Available. Casa Coyote Tulum. Last Minute Reservation",
+    "hero": {
+      "title": "Best Rate Available",
+      "desc": "Last rooms available, book now. Beach club included. 100% mexican food.",
+      "terms": "Terms and conditions may apply. Subject to availability."
+    },
+    "floatingBookNow": {
+      "title": "Best Rate Available",
+      "desc": "Get the best deal, guaranteed"
+    }
+  },
+  "digitalNomads": {
+    "title": "The Best Destination to Work. Casa Coyote Tulum. Digital Nomads",
+    "hero": {
+      "title": "Digital Nomad Discount",
+      "desc": "High-speed Wi-Fi for work. Co-working area, kitchen, roof top. Beach club included.",
+      "terms": "Terms and conditions may apply. Subject to availability."
+    },
+    "floatingBookNow": {
+      "title": "Digital Nomad Discount",
+      "desc": "Obtén la mejor tarifa, garantizado"
+    }
+  },
+  "why": {
+    "title": "Why you need to stay at Casa Coyote Tulum?",
+    "features": {
+      "one": {
+        "title": "Magical Experinece in the Jungle",
+        "desc": "Witness the incredible views from our private roof top terrace of the sunsets that you will only find at Casa Coyote Tulum."
+      },
+      "two": {
+        "title": "Beach Club",
+        "desc": "When you book at Casa Coyote you will have access to the Dos Ceibas Beach Club just a few steps from the hotel."
+      },
+      "three": {
+        "title": "Delicious mexican food",
+        "desc": "Enjoy our restaurant Loco Tulum, one of the most awarded by Tripadvisor and our guests. 100% mexican food."
+      }
+    }
+  },
+  "gallery": {
+    "title": "Gallery"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "faqs": [
+      {
+        "question": "Does Casa Coyote have bikes or cars for rental?",
+        "answer": "If we have bicycles available for guests, we have limited availability, so reservations are necessary."
+      },
+      {
+        "question": "Where is Casa Coyote located in Tulum?",
+        "answer": "Carretera Tulum Boca Paila km 9.2."
+      },
+      {
+        "question": "How can I contact Casa Coyote?",
+        "answer": "You can reach us by phone at +52 1 998 349 7125 and by email at admongrupomanifesto@gmail.com"
+      },
+      {
+        "question": "Is it safe to book online?",
+        "answer": "Yes! We use a commercial booking engine that has everthing you need to feel secure that your information is going to be protected. A 256-bit encryption system is used for send your information."
+      }
+    ]
+  }
+}

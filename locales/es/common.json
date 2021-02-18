@@ -1,0 +1,52 @@
+{
+  "title": "100% eco-hotel en Tulum, México: Casa Coyote",
+  "bookNow": "Reserva ahora",
+  "nextText": "Sig.",
+  "prevText": "Ant.",
+  "viewPhotos": "Ver fotos",
+  "visitRestaurant": "Visitar restaurante",
+  "whatsappText": "Hola, me gustaría solicitar información sobre Casa Coyote...",
+  "viewMap": "Ver mapa",
+  "nav": {
+    "hotel": "Hotel",
+    "rooms": "Habitaciones",
+    "experience": "Experiencia",
+    "restaurant": "Restaurante",
+    "contact": "Contacto"
+  },
+  "footer": {
+    "desc": "Una experiencia increíble que liberará tu mente y tocará tu alma. Habitaciones muy acogedoras, trajes 100% ECO PRIVADOS. Ubicado en la zona más exclusiva de Tulum.",
+    "contact": "CONTÁCTANOS",
+    "terms": "© Hotel Casa Coyote Tulum. Todos los derechos reservados. Desarrollo web por",
+    "floatingBookNow": {
+      "title": "100% habitacion eco-privadas.",
+      "subtitle": "Eco-hotel en Tulum"
+    }
+  },
+  "floatingBanner": {
+    "title": "100% eco-hotel en Tulum",
+    "desc": "La mejor tarifa, garantizado"
+  },
+  "form": {
+    "successText": "¡Gracias! Te responderemos lo más pronto posible.",
+    "sendMessage": "Enviar mensaje",
+    "name": {
+      "label": "Nombre",
+      "required": "Nombre es requerido",
+      "invalid": "Nombre es inválido",
+      "placeholder": "Juán Pérez"
+    },
+    "email": {
+      "label": "Email",
+      "required": "Email es requerido",
+      "invalid": "Email es inválido",
+      "placeholder": "Email"
+    },
+    "message": {
+      "label": "Mensaje",
+      "required": "Mensaje es requerido",
+      "invalid": "Mensaje es inválido",
+      "placeholder": "Mensaje"
+    }
+  }
+}

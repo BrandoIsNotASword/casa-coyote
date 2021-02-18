@@ -1,171 +1,231 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import { v4 } from 'uuid'
 import { useTranslation } from 'gatsby-plugin-react-i18next'
-import { graphql } from 'gatsby'
-import { Image, Divider, Stack, Button, Box, Text, Flex } from '@chakra-ui/core'
-import { GiCutDiamond, GiOakLeaf, GiStarsStack, GiAirtightHatch } from 'react-icons/gi'
+import { Box, Flex, Button, Stack } from '@chakra-ui/react'
+
+import {
+  Article,
+  Section,
+  Hero,
+  HeroBody,
+  HeroSubtitle,
+  HeroCta,
+  RowContent,
+  ColImage,
+  ColInfo,
+  P,
+  FeaturedBanner,
+  Carousel,
+  Gallery,
+  ColContent,
+  Image,
+} from '../ui'
 
 import Layout from '../components/layout'
-import SEO from '../components/seo'
-import Hero from '../components/hero'
-import Article from '../components/article'
-import Section from '../components/section'
-import GalleryContent from '../components/galleryContent'
-import { H1, H2, H3, H4 } from '../components/globals'
-import { FeatureList, FeatureItem } from '../components/featureList'
-import EmbedVideo from '../components/embedVideo'
-import BookButton from '../components/bookButton'
+import Features from '../components/features'
 import FormContact from '../components/formContact'
+import ButtonBook from '../components/buttonBook'
 
-import tripadvisor from '../images/tripadvisor.png'
+import heroLogo from '../images/hero-logo.png'
+import locoLogo from '../images/index/loco-tulum-logo.png'
 
 function IndexPage({ data }) {
-  console.log(data)
   const { t } = useTranslation()
 
   return (
-    <Layout>
-      <SEO title="Home" />
-      <Hero bg={data.hero.childImageSharp.fixed.src} text={t('hero')} />
-      <Article>
-        <Section textAlign="center" id="hotel">
-          <H2 fontSize="md" fontWeight="bold" marginBottom={2}>
-            {t('intro.subtitle')}
-          </H2>
-          <H1>{t('intro.title')}</H1>
-          <Text fontWeight="light" maxWidth="600px" marginX="auto" marginTop={4} fontSize="lg">
-            {t('intro.desc')}
-          </Text>
-          <Divider maxWidth="600px" marginX="auto" marginY={8} />
-          <FeatureList>
-            <FeatureItem
-              icon={<GiCutDiamond size="3rem" />}
-              title={t('intro.features.location.title')}
-              desc={t('intro.features.location.desc')}
-            />
-            <FeatureItem
-              icon={<GiOakLeaf size="3rem" />}
-              title={t('intro.features.nature.title')}
-              desc={t('intro.features.nature.desc')}
-            />
-            <FeatureItem
-              icon={<GiStarsStack size="3rem" />}
-              title={t('intro.features.ammenities.title')}
-              desc={t('intro.features.ammenities.desc')}
-            />
-            <FeatureItem
-              icon={<GiAirtightHatch size="3rem" />}
-              title={t('intro.features.private.title')}
-              desc={t('intro.features.private.desc')}
-            />
-          </FeatureList>
-        </Section>
-
-        <Section>
-          <EmbedVideo
-            height={{ base: '250px', sm: '350px', md: '450px', lg: '550px', xl: '650px' }}
-            url="https://youtu.be/RyW1PLKzG0A"
+    <Layout title={t('index:title')}>
+      <Hero
+        image={
+          <Image
+            fluid={data.hero.childImageSharp.fluid}
+            layout="background"
+            style={{ opacity: 0.5 }}
           />
+        }
+        height={{ base: '350px', sm: '450px', md: '500px' }}
+      >
+        <HeroBody
+          justifyContent={{ base: 'flex-end', md: 'center' }}
+          maxWidth={{ base: '300px', md: '400px' }}
+          marginX={{ base: 'auto', md: 'initial' }}
+          paddingBottom={{ base: 8, md: 0 }}
+        >
+          <Flex justifyContent="center" width="100%">
+            <img style={{ height: 'auto', width: '100%' }} src={heroLogo} />
+          </Flex>
+          <HeroSubtitle as="h1" textAlign="center">
+            {t('index:hero')}
+          </HeroSubtitle>
+          <HeroCta display="flex" width="100%" justifyContent="center" marginTop={2}>
+            <ButtonBook size="lg" />
+          </HeroCta>
+        </HeroBody>
+      </Hero>
+
+      <Article>
+        <Section
+          id="hotel"
+          title={t('index:intro.title')}
+          subtitle={t('index:intro.desc')}
+          titleAlign="center"
+        >
+          <Features />
         </Section>
 
-        <Section id="rooms">
-          <GalleryContent
-            images={data.rooms.edges.map((image) => image.node.childImageSharp.fixed.src)}
-          >
-            <H4 marginBottom={2}>{t('rooms.subtitle')}</H4>
-            <H3>{t('rooms.title')}</H3>
-            <Stack spacing={4} marginTop={4}>
-              {t('rooms.desc', { returnObjects: true }).map((text) => (
-                <Text key={v4()}>{text}</Text>
+        <Section id="rooms" paddingBottom={0}>
+          <RowContent>
+            <ColImage
+              image={<Image fixed={data.ourRooms.childImageSharp.fixed} layout="background" />}
+            />
+            <ColInfo title={t('index:rooms.title')} backgroundColor="primary.900" color="white">
+              {t('index:rooms.desc', { returnObjects: true }).map((text) => (
+                <P key={v4()}>{text}</P>
               ))}
-              <Box>
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119867.30049297537!2d-87.51628317897949!3d20.140173585968363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4fd74cf63f31e1%3A0x905609cdd99ba908!2sCasa%20Coyote%20Tulum!5e0!3m2!1sen!2smx!4v1598066920612!5m2!1sen!2smx"
-                  width="100%"
-                  height="100%"
-                  frameBorder="0"
-                  style={{ border: '0' }}
-                  aria-hidden="false"
-                  title="Casa Coyote"
-                />
-              </Box>
-              <BookButton maxWidth={{ lg: '200px' }} size="lg" />
-            </Stack>
-          </GalleryContent>
+              <ButtonBook color="initial" />
+            </ColInfo>
+          </RowContent>
         </Section>
 
         <Section id="experience">
-          <GalleryContent
-            reversed
-            images={data.experience.edges.map((image) => image.node.childImageSharp.fixed.src)}
-          >
-            <H4 marginBottom={2}>{t('experience.subtitle')}</H4>
-            <H3>{t('experience.title')}</H3>
-            <Stack spacing={4} marginTop={4}>
-              {t('experience.desc', { returnObjects: true }).map((text) => (
-                <Text key={v4()}>{text}</Text>
+          <RowContent reversedInMobile>
+            <ColInfo
+              title={t('index:experience.title')}
+              backgroundColor="primary.900"
+              color="white"
+            >
+              {t('index:experience.desc', { returnObjects: true }).map((text) => (
+                <P key={v4()}>{text}</P>
               ))}
-              <BookButton maxWidth={{ lg: '200px' }} size="lg" />
-            </Stack>
-          </GalleryContent>
+              <ButtonBook color="initial" />
+            </ColInfo>
+            <ColContent>
+              <Gallery
+                paddingBottom="0"
+                marginBottom="0"
+                height="100%"
+                images={data.gallery.edges.map((image) => (
+                  <Image key={v4()} fixed={image.node.childImageSharp.fixed} layout="background" />
+                ))}
+                buttonText={t('common:viewPhotos')}
+              />
+            </ColContent>
+          </RowContent>
         </Section>
 
-        <Section id="restaurant">
-          <GalleryContent
-            images={data.restaurant.edges.map((image) => image.node.childImageSharp.fixed.src)}
+        <Section
+          id="restaurant"
+          paddingTop="0"
+          paddingBottom="0"
+          fullWidth
+          color="white"
+          position="relative"
+        >
+          <Stack
+            position="absolute"
+            width="100%"
+            height="100%"
+            justifyContent="center"
+            zIndex="1"
+            paddingRight={{ base: 6, md: 14, xl: 20 }}
+            paddingLeft={{ base: 6, md: 14, xl: 20 }}
+            pointerEvents="none"
+            maxWidth="700px"
           >
-            <H4 marginBottom={2}>{t('restaurant.subtitle')}</H4>
-            <H3>{t('restaurant.title')}</H3>
-            <Stack spacing={4} marginTop={4}>
-              {t('restaurant.desc', { returnObjects: true }).map((text) => (
-                <Text key={v4()}>{text}</Text>
-              ))}
-              <Flex justify="space-between">
-                <Button
-                  as="a"
-                  href="http://locotulum.com/"
-                  target="_blank"
-                  rel="noopener nofollow"
-                  variant="outline"
-                  variantColor="primary"
-                  _hover={{ color: 'none' }}
-                  maxWidth={{ lg: '200px' }}
-                  size="lg"
-                >
-                  {t('restaurant.button')}
-                </Button>
-                <Image maxWidth="100px" src={tripadvisor} />
+            <Flex>
+              <Flex justifyContent="center" width={{ base: '200px', md: '300px' }} flexShrink="0">
+                <img src={locoLogo} />
               </Flex>
-            </Stack>
-          </GalleryContent>
+            </Flex>
+            <P fontSize="lg" fontWeight="bold">
+              {t('index:restaurant.subtitle')}
+            </P>
+            <P>{t('index:restaurant.desc')}</P>
+            <P fontSize="2xl" textAlign="center"></P>
+            <Box pointerEvents="initial">
+              <Button
+                href="http://locotulum.com/"
+                as="a"
+                colorScheme="gray"
+                color="initial"
+                target="_blank"
+              >
+                {t('common:visitRestaurant')}
+              </Button>
+            </Box>
+          </Stack>
+
+          <Carousel>
+            <FeaturedBanner
+              opacity="0.35"
+              height={{ base: '350px', lg: '500px' }}
+              image={
+                <Image
+                  fluid={data.bgLoco1.childImageSharp.fluid}
+                  layout="background"
+                  style={{ opacity: 0.5 }}
+                />
+              }
+            />
+            <FeaturedBanner
+              opacity="0.35"
+              height={{ base: '350px', lg: '500px' }}
+              image={
+                <Image
+                  fluid={data.bgLoco2.childImageSharp.fluid}
+                  layout="background"
+                  style={{ opacity: 0.5 }}
+                />
+              }
+            />
+            <FeaturedBanner
+              opacity="0.35"
+              height={{ base: '350px', lg: '500px' }}
+              image={
+                <Image
+                  fluid={data.bgLoco3.childImageSharp.fluid}
+                  layout="background"
+                  style={{ opacity: 0.5 }}
+                />
+              }
+            />
+          </Carousel>
         </Section>
 
-        <Section textAlign="center" maxWidth="100%" backgroundColor="#e3f2f3">
-          <H4>{t('banner.subtitle')}</H4>
-          <Text marginTop={4} fontSize="2xl">
-            {t('banner.title')}
-          </Text>
-          <Button
-            as="a"
-            href="https://www.locotulumconcierge.com/"
-            target="_blank"
-            rel="noopener nofollow"
-            variantColor="primary"
-            variant="outline"
-            _hover={{ color: 'none' }}
-            maxWidth={{ lg: '200px' }}
-            marginTop={4}
-            size="lg"
-          >
-            {t('banner.button')}
-          </Button>
-        </Section>
-
-        <Section textAlign="center" id="contact">
-          <H4 marginBottom={2}>{t('form.subtitle')}</H4>
-          <H3>{t('form.title')}</H3>
-          <Text>{t('form.desc')}</Text>
-          <FormContact />
+        <Section
+          id="contact"
+          title={t('index:form.title')}
+          subtitle={t('index:form.desc')}
+          titleAlign="center"
+          backgroundColor="gray.100"
+        >
+          <FormContact
+            padding={8}
+            backgroundColor="white"
+            maxWidth="680px"
+            width="100%"
+            marginX="auto"
+            hideOnSuccess
+            onSubmit={() => {}}
+            successText={t('common:form.successText')}
+            buttonText={t('common:form.sendMessage')}
+            name={{
+              label: t('common:form.name.label'),
+              required: t('common:form.name.required'),
+              invalid: t('common:form.name.invalid'),
+              placeholder: t('common:form.name.placeholder'),
+            }}
+            email={{
+              required: t('common:form.name.required'),
+              invalid: t('common:form.name.invalid'),
+              placeholder: t('common:form.name.placeholder'),
+            }}
+            message={{
+              label: t('common:form.name.label'),
+              required: t('common:form.name.required'),
+              invalid: t('common:form.name.invalid'),
+            }}
+          />
         </Section>
       </Article>
     </Layout>
@@ -173,43 +233,32 @@ function IndexPage({ data }) {
 }
 
 export const query = graphql`
-  fragment multipleFixedImage on FileConnection {
-    edges {
-      node {
-        childImageSharp {
-          fixed(width: 860, quality: 75) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-    }
-  }
-
   query {
-    hero: file(relativePath: { eq: "background-casa-coyote.jpeg" }) {
-      childImageSharp {
-        fixed(width: 1440, quality: 65) {
-          ...GatsbyImageSharpFixed
-        }
-      }
+    hero: file(relativePath: { eq: "index/background.jpg" }) {
+      ...bannerSectionImage
     }
 
-    rooms: allFile(filter: { relativeDirectory: { eq: "rooms" } }, sort: { fields: name }) {
-      ...multipleFixedImage
-    }
-
-    experience: allFile(
-      filter: { relativeDirectory: { eq: "experience" } }
+    gallery: allFile(
+      filter: { relativeDirectory: { eq: "index/gallery" } }
       sort: { fields: name }
     ) {
       ...multipleFixedImage
     }
 
-    restaurant: allFile(
-      filter: { relativeDirectory: { eq: "restaurant" } }
-      sort: { fields: name }
-    ) {
-      ...multipleFixedImage
+    ourRooms: file(relativePath: { eq: "index/our-rooms.jpg" }) {
+      ...fixedImage
+    }
+
+    bgLoco1: file(relativePath: { eq: "index/background-loco-tulum.jpg" }) {
+      ...bannerSectionImage
+    }
+
+    bgLoco2: file(relativePath: { eq: "index/background-loco-tulum-2.jpg" }) {
+      ...bannerSectionImage
+    }
+
+    bgLoco3: file(relativePath: { eq: "index/background-loco-tulum-3.jpg" }) {
+      ...bannerSectionImage
     }
   }
 `

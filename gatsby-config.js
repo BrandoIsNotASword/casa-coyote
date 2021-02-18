@@ -5,14 +5,15 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
     {
-      resolve: 'gatsby-plugin-chakra-ui',
+      resolve: '@chakra-ui/gatsby-plugin',
       options: {
+        isResettingCSS: true,
         isUsingColorMode: false,
+        portalZIndex: 40,
       },
     },
-    `gatsby-plugin-emotion`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
