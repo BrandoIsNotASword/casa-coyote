@@ -36,6 +36,21 @@ function IndexPage({ data }) {
   const { t } = useTranslation()
   const [bookSession, setBookSession] = useState('')
 
+  const onSubmit = async (values, setSuccess) => {
+    const res = await fetch('https://formspree.io/f/moqpzpan', {
+      headers: {
+        Accept: 'application/json',
+      },
+      method: 'post',
+      body: JSON.stringify(values),
+    })
+
+    console.log(res)
+
+    if (res.ok) setSuccess(true)
+    else setSuccess(false)
+  }
+
   return (
     <Layout title={t('index:title')}>
       <Section
@@ -295,7 +310,6 @@ function IndexPage({ data }) {
             </Stack>
           </FeaturedBanner>
         </Section>
-        {console.log(bookSession)}
         <Section
           id="contact"
           title={t('index:form.title')}
@@ -310,7 +324,7 @@ function IndexPage({ data }) {
             width="100%"
             marginX="auto"
             hideOnSuccess
-            onSubmit={() => {}}
+            onSubmit={onSubmit}
             successText={t('common:form.successText')}
             buttonText={t('common:form.sendMessage')}
             name={{

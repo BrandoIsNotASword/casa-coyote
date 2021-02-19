@@ -112,15 +112,15 @@ export const query = graphql`
       ...multipleFixedImage
     }
 
-    why1: file(relativePath: { eq: "landing/beach-club.jpg" }) {
+    why1: file(relativePath: { eq: "landing/magic-jungle.jpeg" }) {
       ...fixedImage
     }
 
-    why2: file(relativePath: { eq: "landing/loco-tulum.jpg" }) {
+    why2: file(relativePath: { eq: "landing/beach-club.jpg" }) {
       ...fixedImage
     }
 
-    why3: file(relativePath: { eq: "landing/magic-jungle.jpeg" }) {
+    why3: file(relativePath: { eq: "landing/loco-tulum.jpg" }) {
       ...fixedImage
     }
   }
