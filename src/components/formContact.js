@@ -27,7 +27,8 @@ function FormContact({
 }) {
   const [success, setSuccess] = useState(false)
   const formik = useFormik({
-    initialValues: { name: '', email: '', message: '' },
+    enableReinitialize: true,
+    initialValues: { name: '', email: '', message: message?.defaultValue },
     validate: (values) => {
       const errors = {}
 

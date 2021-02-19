@@ -48,7 +48,7 @@ Popup.propTypes = {
 }
 
 Popup.defaultProps = {
-  timeout: 15000,
+  timeout: 8000,
 }
 
 export default Popup

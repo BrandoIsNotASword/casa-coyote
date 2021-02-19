@@ -36,9 +36,19 @@
   "experience": {
     "title": "Casa Coyote Experience",
     "subtitle": "EXPERIENCE TULUM",
-    "desc": [
-      "Sunset experience is an unique opportunity to enjoy the sunset hour in a private terrace. A romantic experience to make a toast, to thanks love and life."
-    ]
+    "desc": "Sunset experience is an unique opportunity to enjoy the sunset hour in a private terrace. A romantic experience to make a toast, to thanks love and life.",
+    "spa": {
+      "title": "Spa Casa Coyote",
+      "desc": "Spa offers a wider variety of healing bodywork and energy work to better assist retreat guests in achieving their optimum health goals, both physically and energetically during their stay with us.",
+      "discount": "15% discount booking now.",
+      "message": "I want to book a spa session with 15% discount on..."
+    },
+    "temazcal": {
+      "title": "Temazcal Casa Coyote",
+      "desc": "The temazcal is a physical, mental and spiritual purification ceremony. We enter in the inipi to let go of what we don’t need for our daily life, to let go of our fear, anger, depression and every single thing that don’t really belong to us. We have group and couples 90 minute ceremony.",
+      "discount": "15% discount booking now.",
+      "message": "I want to book a temazcal session with 15% discount on...."
+    }
   },
   "restaurant": {
     "title": "Loco Tulum",

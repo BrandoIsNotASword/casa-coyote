@@ -18,7 +18,7 @@ export function FeatureItem({ title, desc, image, icon, button, ...restProps }) 
           {image}
         </Box>
       )}
-      {icon && <Box width="fit-content">{icon}</Box>}
+      {icon && icon}
       <Heading as="h4" fontWeight="bold" fontSize="xl">
         {title}
       </Heading>

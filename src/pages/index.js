@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import { v4 } from 'uuid'
 import { useTranslation } from 'gatsby-plugin-react-i18next'
@@ -34,6 +34,7 @@ import locoLogo from '../images/index/loco-tulum-logo.png'
 
 function IndexPage({ data }) {
   const { t } = useTranslation()
+  const [bookSession, setBookSession] = useState('')
 
   return (
     <Layout title={t('index:title')}>
@@ -99,7 +100,7 @@ function IndexPage({ data }) {
           />
           <FeaturedBanner
             opacity="0.85"
-            height={{ base: '350px', lg: '500px' }}
+            height={{ base: '350px', md: '450px', lg: '500px' }}
             image={
               <Image
                 fluid={data.hero3.childImageSharp.fluid}
@@ -136,6 +137,82 @@ function IndexPage({ data }) {
         </Section>
 
         <Section id="experience" spacing={10}>
+          <FeatureList columns={2}>
+            <FeatureItem
+              direction={{ base: 'column', lg: 'row' }}
+              icon={
+                <Box
+                  flexShrink="0"
+                  height="125px"
+                  width={{ base: '100%', md: '125px' }}
+                  borderRadius="15px"
+                  position="relative"
+                  overflow="hidden"
+                >
+                  <Image fixed={data.temazcal.childImageSharp.fixed} layout="background" />
+                </Box>
+              }
+              desc={
+                <Stack>
+                  <Heading as="h4" fontWeight="bold" fontSize="xl">
+                    {t('index:experience.spa.title')}
+                  </Heading>
+                  <P>
+                    {t('index:experience.spa.desc')}{' '}
+                    <P as="span" fontWeight="bold">
+                      {t('index:experience.spa.discount')}
+                    </P>
+                  </P>
+                  <Button
+                    onClick={() => setBookSession(t('index:experience.spa.message'))}
+                    as="a"
+                    href="#contact"
+                    colorScheme="teal"
+                    width="fit-content"
+                  >
+                    {t('common:bookSession')}
+                  </Button>
+                </Stack>
+              }
+            />
+            <FeatureItem
+              direction={{ base: 'column', lg: 'row' }}
+              icon={
+                <Box
+                  flexShrink="0"
+                  height="125px"
+                  width={{ base: '100%', md: '125px' }}
+                  borderRadius="15px"
+                  position="relative"
+                  overflow="hidden"
+                >
+                  <Image fixed={data.spa.childImageSharp.fixed} layout="background" />
+                </Box>
+              }
+              desc={
+                <Stack>
+                  <Heading as="h4" fontWeight="bold" fontSize="xl">
+                    {t('index:experience.temazcal.title')}
+                  </Heading>
+                  <P>
+                    {t('index:experience.temazcal.desc')}{' '}
+                    <P as="span" fontWeight="bold">
+                      {t('index:experience.temazcal.discount')}
+                    </P>
+                  </P>
+                  <Button
+                    onClick={() => setBookSession(t('index:experience.temazcal.message'))}
+                    as="a"
+                    href="#contact"
+                    colorScheme="teal"
+                    width="fit-content"
+                  >
+                    {t('common:bookSession')}
+                  </Button>
+                </Stack>
+              }
+            />
+          </FeatureList>
           <RowContent reversedInMobile>
             <ColInfo
               height={{ lg: '400px' }}
@@ -143,9 +220,7 @@ function IndexPage({ data }) {
               backgroundColor="primary.900"
               color="white"
             >
-              {t('index:experience.desc', { returnObjects: true }).map((text) => (
-                <P key={v4()}>{text}</P>
-              ))}
+              <P>{t('index:experience.desc')}</P>
               <ButtonBook color="initial" />
             </ColInfo>
             <ColContent>
@@ -160,69 +235,6 @@ function IndexPage({ data }) {
               />
             </ColContent>
           </RowContent>
-
-          <FeatureList columns={2}>
-            <FeatureItem
-              direction={{ base: 'column', md: 'row' }}
-              icon={
-                <Box
-                  height="125px"
-                  width="125px"
-                  borderRadius="15px"
-                  position="relative"
-                  overflow="hidden"
-                >
-                  <Image fixed={data.temazcal.childImageSharp.fixed} layout="background" />
-                </Box>
-              }
-              desc={
-                <Stack>
-                  <Heading as="h4" fontWeight="bold" fontSize="xl">
-                    Temazcal Casa Coyote
-                  </Heading>
-                  <P>
-                    El spa ofrece una variedad más amplia de trabajo corporal y energético curativo
-                    para ayudar mejor a los huéspedes del retiro a alcanzar sus objetivos de salud
-                    óptimos, tanto física como energéticamente durante su estancia con nosotros.
-                  </P>
-                  <Button colorScheme="teal" width="fit-content">
-                    Book a session
-                  </Button>
-                </Stack>
-              }
-            />
-            <FeatureItem
-              direction={{ base: 'column', md: 'row' }}
-              icon={
-                <Box
-                  height="125px"
-                  width="125px"
-                  borderRadius="15px"
-                  position="relative"
-                  overflow="hidden"
-                >
-                  <Image fixed={data.spa.childImageSharp.fixed} layout="background" />
-                </Box>
-              }
-              desc={
-                <Stack>
-                  <Heading as="h4" fontWeight="bold" fontSize="xl">
-                    Spa Casa Coyote
-                  </Heading>
-                  <P>
-                    El temazcal es una ceremonia de purificación física, mental y espiritual.
-                    Entramos en el inipi para dejar ir lo que no necesitamos para nuestra vida
-                    diaria, para dejar ir nuestro miedo, ira, depresión y todas las cosas que
-                    realmente no nos pertenecen. Tenemos una ceremonia de 90 minutos en grupo y en
-                    pareja.
-                  </P>
-                  <Button colorScheme="teal" width="fit-content">
-                    Book a session
-                  </Button>
-                </Stack>
-              }
-            />
-          </FeatureList>
         </Section>
 
         <Section
@@ -283,7 +295,7 @@ function IndexPage({ data }) {
             </Stack>
           </FeaturedBanner>
         </Section>
-
+        {console.log(bookSession)}
         <Section
           id="contact"
           title={t('index:form.title')}
@@ -308,14 +320,15 @@ function IndexPage({ data }) {
               placeholder: t('common:form.name.placeholder'),
             }}
             email={{
-              required: t('common:form.name.required'),
-              invalid: t('common:form.name.invalid'),
-              placeholder: t('common:form.name.placeholder'),
+              required: t('common:form.email.required'),
+              invalid: t('common:form.email.invalid'),
+              placeholder: t('common:form.email.placeholder'),
             }}
             message={{
-              label: t('common:form.name.label'),
-              required: t('common:form.name.required'),
-              invalid: t('common:form.name.invalid'),
+              label: t('common:form.message.label'),
+              required: t('common:form.message.required'),
+              invalid: t('common:form.message.invalid'),
+              defaultValue: bookSession,
             }}
           />
         </Section>
