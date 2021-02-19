@@ -39,7 +39,7 @@ function Header({ variantHeader, ...restProps }) {
       }
       zIndex={2}
       rightButton={<ButtonBook />}
-      position={{ base: 'absolute', md: variantHeader === 'solid' ? 'initial' : 'fixed' }}
+      position={{ base: 'relative', md: variantHeader === 'solid' ? 'initial' : 'fixed' }}
       {...restProps}
     >
       <Link href="#hotel" passHref>

@@ -45,8 +45,6 @@ function IndexPage({ data }) {
       body: JSON.stringify(values),
     })
 
-    console.log(res)
-
     if (res.ok) setSuccess(true)
     else setSuccess(false)
   }
@@ -65,7 +63,7 @@ function IndexPage({ data }) {
           position="absolute"
           width="100%"
           height="100%"
-          justifyContent={{ base: 'flex-end', md: 'center' }}
+          justifyContent="center"
           zIndex="1"
           paddingRight={{ base: 6, md: 14, xl: 20 }}
           paddingLeft={{ base: 6, md: 14, xl: 20 }}
@@ -90,7 +88,7 @@ function IndexPage({ data }) {
           </HeroBody>
         </Stack>
 
-        <Carousel>
+        <Carousel autoplay>
           <FeaturedBanner
             opacity="0.85"
             height={{ base: '350px', md: '450px', lg: '500px' }}
@@ -164,7 +162,7 @@ function IndexPage({ data }) {
                   position="relative"
                   overflow="hidden"
                 >
-                  <Image fixed={data.temazcal.childImageSharp.fixed} layout="background" />
+                  <Image fixed={data.spa.childImageSharp.fixed} layout="background" />
                 </Box>
               }
               desc={
@@ -201,7 +199,7 @@ function IndexPage({ data }) {
                   position="relative"
                   overflow="hidden"
                 >
-                  <Image fixed={data.spa.childImageSharp.fixed} layout="background" />
+                  <Image fixed={data.temazcal.childImageSharp.fixed} layout="background" />
                 </Box>
               }
               desc={
@@ -228,7 +226,7 @@ function IndexPage({ data }) {
               }
             />
           </FeatureList>
-          <RowContent reversedInMobile>
+          <RowContent id="experience" reversedInMobile>
             <ColInfo
               height={{ lg: '400px' }}
               title={t('index:experience.title')}

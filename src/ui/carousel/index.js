@@ -17,7 +17,16 @@ const Wrapper = styled(Box)`
   }
 `
 
-function Carousel({ slideIndex, heightMode, dotColor, dotStyle, children, ...restProps }) {
+function Carousel({
+  autoplay,
+  autoplayInterval,
+  slideIndex,
+  heightMode,
+  dotColor,
+  dotStyle,
+  children,
+  ...restProps
+}) {
   const [currentIndex, setCurrentIndex] = useState(slideIndex)
 
   const isOneChild = children.length <= 1
@@ -51,6 +60,8 @@ function Carousel({ slideIndex, heightMode, dotColor, dotStyle, children, ...res
       {...restProps}
     >
       <NukaCarousel
+        autoplay={autoplay}
+        autoplayInterval={autoplayInterval}
         heightMode={heightMode}
         slideIndex={slideIndex}
         afterSlide={(currentIndex) => setCurrentIndex(currentIndex)}
@@ -92,6 +103,8 @@ function Carousel({ slideIndex, heightMode, dotColor, dotStyle, children, ...res
 }
 
 Carousel.propTypes = {
+  autoplay: PropTypes.bool,
+  autoplayInterval: PropTypes.number,
   slideIndex: PropTypes.number,
   heightMode: PropTypes.string,
   dotColor: PropTypes.string,
@@ -100,6 +113,8 @@ Carousel.propTypes = {
 
 Carousel.defaultProps = {
   slideIndex: 0,
+  autoplay: false,
+  autoplayInterval: 3000,
   heightMode: 'current',
   dotColor: 'white',
   children: null,

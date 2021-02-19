@@ -94,7 +94,10 @@ function Layout({
       {!disableHeader && (
         <Header
           variantHeader={variantHeader}
-          backgroundColor={variantHeader === 'solid' ? 'primary.900' : 'rgba(0,0,0,0.6)'}
+          backgroundColor={{
+            base: 'primary.900',
+            md: variantHeader === 'solid' ? 'primary.900' : 'rgba(0,0,0,0.6)',
+          }}
           style={{ backdropFilter: 'blur(4px)' }}
         />
       )}
