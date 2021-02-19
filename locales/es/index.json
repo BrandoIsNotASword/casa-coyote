@@ -41,12 +41,12 @@
       "title": "Spa Casa Coyote",
       "desc": "El temazcal es una ceremonia de purificación física, mental y espiritual. Entramos en el inipi para dejar ir lo que no necesitamos para nuestra vida diaria, para dejar ir nuestro miedo, ira, depresión y todas las cosas que realmente no nos pertenecen. Tenemos una ceremonia de 90 minutos en grupo y en pareja.",
       "discount": "15% de descuento reservando ahora.",
-      "message": "Quiero reservar un sesión de spa con el 15% de descuento el día..."
+      "message": "Quiero reservar uns sesión de spa con el 15% de descuento el día..."
     },
     "temazcal": {
       "title": "Temazcal Casa Coyote",
       "desc": "El spa ofrece una variedad más amplia de trabajo corporal y energético curativo para ayudar mejor a los huéspedes del retiro a alcanzar sus objetivos de salud óptimos, tanto física como energéticamente durante su estancia con nosotros.",
-      "message": "Quiero reservar un sesión de temazcal con el 15% de descuento el día..."
+      "message": "Quiero reservar uns sesión de temazcal con el 15% de descuento el día..."
     }
   },
   "restaurant": {
