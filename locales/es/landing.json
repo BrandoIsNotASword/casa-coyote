@@ -26,13 +26,17 @@
   "digitalNomads": {
     "title": "El Mejor Destino Para Trabajar. Casa Coyote Tulum. Nómadas Digitales",
     "hero": {
-      "title": "Descuento Para Nómadas Digitales",
-      "desc": "Wi-Fi de alta velocidad para trabajar. Área de co-working, cocina, roof top. Club de playa incluído.",
+      "title": "Promoción Nómadas Digitales",
+      "features": [
+        "Wi-Fi de Alta Velocidad",
+        "Zona de co-working exclusiva, cocina, azotea",
+        "Club de playa incluído"
+      ],
       "terms": "Pueden aplicarse términos y condiciones. Sujeto a disponibilidad."
     },
     "floatingBookNow": {
-      "title": "Descuento Para Nómadas Digitales",
-      "desc": "Obtén la mejor tarifa, garantizado"
+      "title": "Promo Nómadas Digitales",
+      "desc": "Wi-Fi de Alta Velocidad."
     }
   },
   "why": {
@@ -47,7 +51,7 @@
         "desc": "Al reservar en Casa Coyote tendrás acceso al club de Playa de Dos Ceibas a unos cuantos pasos del hotel."
       },
       "three": {
-        "title": "Deliciosa comida mediterránea",
+        "title": "Deliciosa Comida Mediterránea",
         "desc": "Disfrute de nuestro restaurante Loco Tulum, uno de los más premiados por Tripadvisor y por nuestros huéspedes. Comida 100% mediterránea."
       }
     }

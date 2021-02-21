@@ -6,8 +6,10 @@
   "viewPhotos": "Ver fotos",
   "visitRestaurant": "Visitar restaurante",
   "whatsappText": "Hola, me gustaría solicitar información sobre Casa Coyote...",
+  "whatsappTextDigitalNomads": "Hola, soy nómada digital y me gustaría reservar en Casa Coyote...",
   "viewMap": "Ver mapa",
   "bookSession": "Reservar una sesión",
+  "bookWhatsapp": "Reservar en Whatsapp",
   "nav": {
     "hotel": "Hotel",
     "rooms": "Habitaciones",

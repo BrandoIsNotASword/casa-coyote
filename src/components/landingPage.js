@@ -18,7 +18,7 @@ import {
 
 export function Header({ image, children, ...restProps }) {
   return (
-    <Hero image={image} height={{ base: '450px', sm: '450px', md: '500px' }} {...restProps}>
+    <Hero image={image} height={{ base: '450px', md: '500px' }} {...restProps}>
       <HeroBody zIndex={0} maxWidth="100%">
         {children}
       </HeroBody>
@@ -78,22 +78,20 @@ Faqs.propTypes = {
   faqs: PropTypes.array,
 }
 
-function LandingPage({ children, title }) {
+function LandingPage({ children, title, ...restProps }) {
   return (
-    <Layout title={title} disableHeader disablePopup disableFloatingBanner>
+    <Layout title={title} disableHeader disablePopup disableFloatingBanner {...restProps}>
       <Article backgroundColor="white">{children}</Article>
     </Layout>
   )
 }
 
 LandingPage.propTypes = {
-  disableFloatingBanner: PropTypes.bool,
   title: PropTypes.string,
   images: PropTypes.any,
 }
 
 LandingPage.defaultProps = {
-  disableFloatingBanner: false,
   title: '',
   images: null,
 }

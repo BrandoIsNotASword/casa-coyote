@@ -26,13 +26,17 @@
   "digitalNomads": {
     "title": "The Best Destination to Work. Casa Coyote Tulum. Digital Nomads",
     "hero": {
-      "title": "Digital Nomad Discount",
-      "desc": "High-speed Wi-Fi for work. Co-working area, kitchen, roof top. Beach club included.",
+      "title": "Digital Nomad Exclusive",
+      "features": [
+        "High-speed Wi-Fi for work",
+        "Exclusive co-working area, kitchen, roof top",
+        "Beach club included"
+      ],
       "terms": "Terms and conditions may apply. Subject to availability."
     },
     "floatingBookNow": {
-      "title": "Digital Nomad Discount",
-      "desc": "Obtén la mejor tarifa, garantizado"
+      "title": "Digital Nomad Promo",
+      "desc": "High Speed Wi-Fi"
     }
   },
   "why": {
@@ -47,7 +51,7 @@
         "desc": "When you book at Casa Coyote you will have access to the Dos Ceibas Beach Club just a few steps from the hotel."
       },
       "three": {
-        "title": "Delicious mediterranean food",
+        "title": "Delicious Mediterranean Food",
         "desc": "Enjoy our restaurant Loco Tulum, one of the most awarded by Tripadvisor and our guests. 100% mediterranean food."
       }
     }

@@ -89,7 +89,7 @@ function Layout({
   return (
     <>
       <Global styles={globalStyles} />
-      <SEO title={`${title} | ${t('common:title')}`} />
+      <SEO title={`${title}`} />
 
       {!disableHeader && (
         <Header
@@ -154,11 +154,13 @@ function Layout({
       {!disableWhatsapp && (
         <WhatsappButton
           bottom="65px"
-          href={`https://api.whatsapp.com/send?phone=5219841135252&text=${t(
+          href={`https://api.whatsapp.com/send?phone=5219983497125&text=${t(
             'common:whatsappText'
           )}`}
         />
       )}
+
+      {console.log(disableFloatingBanner)}
 
       {!disableFloatingBanner && (
         <FloatingBook

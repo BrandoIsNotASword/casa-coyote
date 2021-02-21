@@ -1,13 +1,12 @@
 import React from 'react'
 import { v4 } from 'uuid'
-import { Stack, Flex } from '@chakra-ui/react'
+import { Stack, Flex, Button } from '@chakra-ui/react'
 import { useTranslation } from 'gatsby-plugin-react-i18next'
+import { AiFillCheckCircle, AiOutlineWhatsApp } from 'react-icons/ai'
 
 import LandingPage, { Header, Gallery, Features, Faqs } from '../components/landingPage'
 
-import { H1, P, Image } from '../ui'
-import ButtonBook from '../components/buttonBook'
-import FloatingBook from '../components/floatingBook'
+import { H1, P, Image, FloatingBanner } from '../ui'
 
 import logo from '../images/casa-coyote-logo-footer.png'
 
@@ -15,13 +14,14 @@ function DigitalNomadsPage({ data }) {
   const { t } = useTranslation()
 
   return (
-    <LandingPage title={t('landing:digitalNomads.title')}>
+    <LandingPage disableWhatsapp title={t('landing:digitalNomads.title')}>
       <Header
+        height="500px"
         image={
           <Image
             fluid={data.hero.childImageSharp.fluid}
             layout="background"
-            style={{ opacity: 0.5 }}
+            style={{ opacity: 0.5, transform: 'scaleX(-1)' }}
           />
         }
       >
@@ -46,10 +46,42 @@ function DigitalNomadsPage({ data }) {
           <H1 color="white" fontSize="5xl" textAlign="center">
             {t('landing:digitalNomads.hero.title')}
           </H1>
-          <P color="white" textAlign="center" fontSize="lg">
-            {t('landing:digitalNomads.hero.desc')}
-          </P>
-          <ButtonBook size="lg" colorScheme="red" width="100%" promotion="lastminute" />
+          <Stack spacing={1} color="white">
+            {t('landing:digitalNomads.hero.features', { returnObjects: true }).map((text) => (
+              <P
+                key={v4()}
+                display="flex"
+                alignItems="center"
+                justifyContent={{ base: 'flex-start', md: 'center' }}
+                lineHeight="shorter"
+              >
+                <AiFillCheckCircle
+                  size="1.25rem"
+                  style={{
+                    marginRight: '5px',
+                    color: 'green',
+                    backgroundColor: 'white',
+                    borderRadius: '100px',
+                    flexShrink: 0,
+                  }}
+                />
+                {text}
+              </P>
+            ))}
+          </Stack>
+          <Button
+            as="a"
+            target="_blank"
+            href={`https://api.whatsapp.com/send?phone=5219983497125&text=${t(
+              'common:whatsappTextDigitalNomads'
+            )}`}
+            width="100%"
+            leftIcon={<AiOutlineWhatsApp size="1.25rem" />}
+            size="lg"
+            colorScheme="green"
+          >
+            {t('common:bookWhatsapp')}
+          </Button>
           <P textAlign="center" color="white" lineHeight="shorter" fontSize="sm">
             {t('landing:digitalNomads.hero.terms')}
           </P>
@@ -87,21 +119,34 @@ function DigitalNomadsPage({ data }) {
 
       <Faqs title={t('landing:faq.title')} list={t('landing:faq.faqs', { returnObjects: true })} />
 
-      <FloatingBook
-        title={t('landing:digitalNomads.floatingBookNow.title')}
-        desc={t('landing:digitalNomads.floatingBookNow.desc')}
-        colorScheme="red"
-        promotion="EARLYBOOKING"
-        arrival="2021-05-01"
-        departure="2021-05-02"
-      />
+      <FloatingBanner>
+        <Stack spacing={1}>
+          <P fontSize="14px" fontWeight="bold" lineHeight="none">
+            {t('landing:digitalNomads.floatingBookNow.title')}
+          </P>
+          <P fontSize="14px" lineHeight="none">
+            {t('landing:digitalNomads.floatingBookNow.desc')}
+          </P>
+        </Stack>
+        <Button
+          as="a"
+          target="_blank"
+          href={`https://api.whatsapp.com/send?phone=5219983497125&text=${t(
+            'common:whatsappTextDigitalNomads'
+          )}`}
+          leftIcon={<AiOutlineWhatsApp size="1.25rem" />}
+          colorScheme="green"
+        >
+          {t('common:bookNow')}
+        </Button>
+      </FloatingBanner>
     </LandingPage>
   )
 }
 
 export const query = graphql`
   query {
-    hero: file(relativePath: { eq: "index/background.jpg" }) {
+    hero: file(relativePath: { eq: "landing/coworking.jpg" }) {
       ...bannerSectionImage
     }
 
