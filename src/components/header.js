@@ -1,15 +1,16 @@
 import React from 'react'
-import { Link, useTranslation } from 'gatsby-plugin-react-i18next'
+import { useTranslation } from 'gatsby-plugin-react-i18next'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
-import { Flex } from '@chakra-ui/react'
+import { Flex, Link } from '@chakra-ui/react'
 
 import { Menu } from '../ui'
 
 import ButtonBook from './buttonBook'
 
-import logo from '../images/casa-coyote-logo.png'
+import logoCoyote from '../images/casa-coyote-logo.png'
+import logoXaman from '../images/casa-xaman-logo.png'
 
 const NavLink = styled.a`
   opacity: 0.85;
@@ -26,6 +27,7 @@ const NavLink = styled.a`
 `
 
 function Header({ variantHeader, ...restProps }) {
+  const isCoyote = process.env.GATSBY_HOTEL_VAR === 'casa-coyote'
   const { t } = useTranslation()
 
   return (
@@ -33,7 +35,10 @@ function Header({ variantHeader, ...restProps }) {
       logo={
         <Link to="/">
           <Flex height={{ base: '40px', md: '50px' }}>
-            <img style={{ height: '100%', width: 'auto' }} src={logo} />
+            <img
+              style={{ height: '100%', width: 'auto' }}
+              src={isCoyote ? logoCoyote : logoXaman}
+            />
           </Flex>
         </Link>
       }
@@ -42,19 +47,19 @@ function Header({ variantHeader, ...restProps }) {
       position={{ base: 'relative', md: variantHeader === 'solid' ? 'initial' : 'fixed' }}
       {...restProps}
     >
-      <Link href="#hotel" passHref>
+      <Link href="#hotel">
         <NavLink>{t('common:nav.hotel')}</NavLink>
       </Link>
-      <Link href="#rooms" passHref>
+      <Link href="#rooms">
         <NavLink>{t('common:nav.rooms')}</NavLink>
       </Link>
-      <Link href="#experience" passHref>
+      <Link href="#experience">
         <NavLink>{t('common:nav.experience')}</NavLink>
       </Link>
-      <Link href="#restaurant" passHref>
+      <Link href="#restaurant">
         <NavLink>{t('common:nav.restaurant')}</NavLink>
       </Link>
-      <Link href="#contact" passHref>
+      <Link href="#contact">
         <NavLink>{t('common:nav.contact')}</NavLink>
       </Link>
     </Menu>

@@ -3,8 +3,8 @@
   "hero": "100% eco-hotel con suites privadas en Tulum, México.",
   "intro": {
     "title": "Eco-Hotel en Tulum, México",
-    "subtitle": "BIENVENIDO A CASA COYOTE",
-    "desc": "Quédese en Casa Coyote, una experiencia increíble que liberará su mente y tocará su alma. Habitaciones muy acogedoras, 100% SUITES ECO PRIVADAS, terraza privada, zonas frescas y tranquilas, situadas al lado de la playa (3 min a pie).",
+    "subtitle": "BIENVENIDO A {hotel}",
+    "desc": "Quédese en {hotel}, una experiencia increíble que liberará su mente y tocará su alma. Habitaciones muy acogedoras, 100% SUITES ECO PRIVADAS, terraza privada, zonas frescas y tranquilas, situadas al lado de la playa (3 min a pie).",
     "features": {
       "location": {
         "title": "MEJOR UBICACIÓN",
@@ -20,7 +20,7 @@
       },
       "private": {
         "title": "HABITACIÓN PRIVADA",
-        "desc": "Se sentirá como en casa. La propiedad tiene 4 habitaciones privadas y un completo Loft de lujo con cocina completa, nevera, estufa, sofá, salón y mesa central."
+        "desc": "Te sentirás como en casa. La propiedad tiene 4 habitaciones privadas y un loft de lujo completo. Además cocina compartida y espacio de trabajo con Wi-Fi de alta velocidad para todos nuestros huéspedes y piscina en la azotea para ver la puesta de sol."
       }
     }
   },
@@ -28,32 +28,37 @@
     "title": "Nuestros cuartos privados",
     "subtitle": "CONOCE NUESTROS ECO-CUARTOS",
     "desc": [
-      "Todas las habitaciones tienen cama King Size, ventilador, baño privado, ventilación maya, armario completo, jabón de manos, jabón corporal, champú orgánico.",
+      "Todas las habitaciones tienen cama King Size, ventilador, baño privado, ventilación maya, armario completo, jabón de manos, jabón corporal, champú orgánico. También escritorio para trabajar y aire acondicionado en cada habitación.",
       "Toallas de baño y de playa. Recuerde que estamos aquí para usted en cualquier momento y también localizados al lado de la playa (3 min a pie de la playa) en el área del hotel, al lado de Be Tulum, Casa Malca y Nomade.",
       "A 5 minutos de los mejores restaurantes, bares y tiendas de la zona. A nuestro lado tenemos el mejor Spa en Tulum Yáan."
     ]
   },
   "experience": {
-    "title": "Experiencia Casa Coyote",
+    "title": "Experiencia {hotel}",
     "subtitle": "EXPERIMENTA TULUM",
     "desc": "La experiencia de la puesta de sol es una oportunidad única para disfrutar de la hora de la puesta de sol en una terraza privada. Una experiencia romántica para hacer un brindis, para agradecer al amor y a la vida.",
     "spa": {
-      "title": "Spa Casa Coyote",
+      "title": "Spa {hotel}",
       "desc": "El temazcal es una ceremonia de purificación física, mental y espiritual. Entramos en el inipi para dejar ir lo que no necesitamos para nuestra vida diaria, para dejar ir nuestro miedo, ira, depresión y todas las cosas que realmente no nos pertenecen. Tenemos una ceremonia de 90 minutos en grupo y en pareja.",
       "discount": "15% de descuento reservando ahora.",
-      "message": "Quiero reservar uns sesión de spa con el 15% de descuento el día..."
+      "message": "Quiero reservar una sesión de spa con el 15% de descuento el día..."
     },
     "temazcal": {
-      "title": "Temazcal Casa Coyote",
+      "title": "Temazcal {hotel}",
       "desc": "El spa ofrece una variedad más amplia de trabajo corporal y energético curativo para ayudar mejor a los huéspedes del retiro a alcanzar sus objetivos de salud óptimos, tanto física como energéticamente durante su estancia con nosotros.",
-      "message": "Quiero reservar uns sesión de temazcal con el 15% de descuento el día..."
+      "discount": "15% de descuento reservando ahora.",
+      "message": "Quiero reservar una sesión de temazcal con el 15% de descuento el día..."
     }
   },
   "restaurant": {
-    "title": "Loco Tulum",
-    "subtitle": "CONOCE NUESTRO RESTAURANTE",
+    "title": "Conoce nuestro restaurante",
     "desc": "Loco Tulum es la idea y la filosofía de enfatizar el deleite de cada sabor, aroma, color y sobre todo, el verdadero sabor de cada ofrenda. A su vez, pone a prueba los sentidos, y crea un momento de verdadero disfrute de la vida.",
     "button": "Visitar restaurante"
+  },
+  "coworking": {
+    "title": "¿Buscas internet de alta velocidad para trabajar?",
+    "desc": "Entendemos la necesidad de los Nómadas Digitales. Es por ello que creamos instalaciones de co-working con internet de Alta Velocidad, para que sigas trabajando y disfrutando de Tulum con Casa Coyote.",
+    "button": "Promoción para Nómadas Digitales"
   },
   "banner": {
     "title": "Loco Concierge te ayuda a crear la mejor experiencia personalizada en Tulum.",

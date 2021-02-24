@@ -8,13 +8,18 @@ import LandingPage, { Header, Gallery, Features, Faqs } from '../components/land
 
 import { H1, P, Image, FloatingBanner } from '../ui'
 
-import logo from '../images/casa-coyote-logo-footer.png'
+import logoCoyote from '../images/casa-coyote-logo-footer.png'
+import logoXaman from '../images/casa-xaman-logo-footer.png'
 
 function DigitalNomadsPage({ data }) {
+  const isCoyote = process.env.GATSBY_HOTEL_VAR === 'casa-coyote'
   const { t } = useTranslation()
 
   return (
-    <LandingPage disableWhatsapp title={t('landing:digitalNomads.title')}>
+    <LandingPage
+      disableWhatsapp
+      title={t('landing:digitalNomads.title').replace('{hotel}', process.env.GATSBY_HOTEL)}
+    >
       <Header
         height="500px"
         image={
@@ -41,7 +46,7 @@ function DigitalNomadsPage({ data }) {
             marginX="auto"
             opacity="0.85"
           >
-            <img style={{ width: '100%' }} src={logo} />
+            <img style={{ width: '100%' }} src={isCoyote ? logoCoyote : logoXaman} />
           </Flex>
           <H1 color="white" fontSize="5xl" textAlign="center">
             {t('landing:digitalNomads.hero.title')}
@@ -89,17 +94,17 @@ function DigitalNomadsPage({ data }) {
       </Header>
 
       <Features
-        title={t('landing:why.title')}
+        title={t('landing:why.title').replace('{hotel}', process.env.GATSBY_HOTEL)}
         list={[
           {
             image: <Image fixed={data.why1.childImageSharp.fixed} layout="background" />,
             title: t('landing:why.features.one.title'),
-            desc: t('landing:why.features.one.desc'),
+            desc: t('landing:why.features.one.desc').replace('{hotel}', process.env.GATSBY_HOTEL),
           },
           {
             image: <Image fixed={data.why2.childImageSharp.fixed} layout="background" />,
             title: t('landing:why.features.two.title'),
-            desc: t('landing:why.features.two.desc'),
+            desc: t('landing:why.features.two.desc').replace('{hotel}', process.env.GATSBY_HOTEL),
           },
           {
             image: <Image fixed={data.why3.childImageSharp.fixed} layout="background" />,
@@ -117,7 +122,13 @@ function DigitalNomadsPage({ data }) {
         ))}
       />
 
-      <Faqs title={t('landing:faq.title')} list={t('landing:faq.faqs', { returnObjects: true })} />
+      <Faqs
+        title={t('landing:faq.title')}
+        list={t('landing:faq.faqs', { returnObjects: true }).map((faq) => ({
+          question: faq.question.replace('{hotel}', process.env.GATSBY_HOTEL),
+          answer: faq.answer,
+        }))}
+      />
 
       <FloatingBanner>
         <Stack spacing={1}>

@@ -29,10 +29,13 @@ import Features from '../components/features'
 import FormContact from '../components/formContact'
 import ButtonBook from '../components/buttonBook'
 
-import heroLogo from '../images/hero-logo.png'
+import coyoteHeroLogo from '../images/casa-coyote-hero-logo.png'
+import xamanHeroLogo from '../images/casa-xaman-logo.png'
 import locoLogo from '../images/index/loco-tulum-logo.png'
 
 function IndexPage({ data }) {
+  const isCoyote = process.env.GATSBY_HOTEL_VAR === 'casa-coyote'
+
   const { t } = useTranslation()
   const [bookSession, setBookSession] = useState('')
 
@@ -76,9 +79,21 @@ function IndexPage({ data }) {
             marginX={{ base: 'auto', md: 'initial' }}
             paddingBottom={{ base: 8, md: 0 }}
           >
-            <Flex alignItems="flex-start" justifyContent="center" width="100%">
-              <img style={{ width: '100%' }} src={heroLogo} />
-            </Flex>
+            {isCoyote ? (
+              <Flex alignItems="flex-start" justifyContent="center" width="100%">
+                <img style={{ width: '100%' }} src={coyoteHeroLogo} />
+              </Flex>
+            ) : (
+              <Flex
+                alignItems="flex-start"
+                justifyContent="center"
+                width="100%"
+                maxWidth={{ base: '125px', md: '160px', lg: '185px' }}
+                marginX="auto"
+              >
+                <img style={{ width: '100%' }} src={xamanHeroLogo} />
+              </Flex>
+            )}
             <HeroSubtitle as="h1" textAlign="center">
               {t('index:hero')}
             </HeroSubtitle>
@@ -94,7 +109,9 @@ function IndexPage({ data }) {
             height={{ base: '350px', md: '450px', lg: '500px' }}
             image={
               <Image
-                fluid={data.hero1.childImageSharp.fluid}
+                fluid={
+                  isCoyote ? data.hero1.childImageSharp.fluid : data.hero2.childImageSharp.fluid
+                }
                 layout="background"
                 style={{ opacity: 0.5 }}
               />
@@ -105,7 +122,9 @@ function IndexPage({ data }) {
             height={{ base: '350px', md: '450px', lg: '500px' }}
             image={
               <Image
-                fluid={data.hero2.childImageSharp.fluid}
+                fluid={
+                  isCoyote ? data.hero2.childImageSharp.fluid : data.hero3.childImageSharp.fluid
+                }
                 layout="background"
                 style={{ opacity: 0.5 }}
               />
@@ -116,7 +135,9 @@ function IndexPage({ data }) {
             height={{ base: '350px', md: '450px', lg: '500px' }}
             image={
               <Image
-                fluid={data.hero3.childImageSharp.fluid}
+                fluid={
+                  isCoyote ? data.hero3.childImageSharp.fluid : data.hero1.childImageSharp.fluid
+                }
                 layout="background"
                 style={{ opacity: 0.5 }}
               />
@@ -138,7 +159,16 @@ function IndexPage({ data }) {
         <Section id="rooms" paddingBottom={0}>
           <RowContent>
             <ColImage
-              image={<Image fixed={data.ourRooms.childImageSharp.fixed} layout="background" />}
+              image={
+                <Image
+                  fixed={
+                    isCoyote
+                      ? data.casaCoyoteOurRooms.childImageSharp.fixed
+                      : data.casaXamanOurRooms.childImageSharp.fixed
+                  }
+                  layout="background"
+                />
+              }
             />
             <ColInfo title={t('index:rooms.title')} backgroundColor="primary.900" color="white">
               {t('index:rooms.desc', { returnObjects: true }).map((text) => (
@@ -168,7 +198,7 @@ function IndexPage({ data }) {
               desc={
                 <Stack>
                   <Heading as="h4" fontWeight="bold" fontSize="xl">
-                    {t('index:experience.spa.title')}
+                    {t('index:experience.spa.title').replace('{hotel}', process.env.GATSBY_HOTEL)}
                   </Heading>
                   <P>
                     {t('index:experience.spa.desc')}{' '}
@@ -205,7 +235,10 @@ function IndexPage({ data }) {
               desc={
                 <Stack>
                   <Heading as="h4" fontWeight="bold" fontSize="xl">
-                    {t('index:experience.temazcal.title')}
+                    {t('index:experience.temazcal.title').replace(
+                      '{hotel}',
+                      process.env.GATSBY_HOTEL
+                    )}
                   </Heading>
                   <P>
                     {t('index:experience.temazcal.desc')}{' '}
@@ -226,10 +259,11 @@ function IndexPage({ data }) {
               }
             />
           </FeatureList>
+
           <RowContent id="experience" reversedInMobile>
             <ColInfo
               height={{ lg: '400px' }}
-              title={t('index:experience.title')}
+              title={t('index:experience.title').replace('{hotel}', process.env.GATSBY_HOTEL)}
               backgroundColor="primary.900"
               color="white"
             >
@@ -248,6 +282,32 @@ function IndexPage({ data }) {
               />
             </ColContent>
           </RowContent>
+
+          <RowContent id="restaurant">
+            <ColImage
+              image={<Image fixed={data.locoTulum.childImageSharp.fixed} layout="background" />}
+            />
+            <ColInfo
+              title={t('index:restaurant.title')}
+              backgroundColor="primary.900"
+              color="white"
+            >
+              <Flex alignItems="flex-start" justifyContent="center" width="200px" flexShrink="0">
+                <img src={locoLogo} />
+              </Flex>
+              <P>{t('index:restaurant.desc')}</P>
+              <Button
+                href="http://locotulum.com/"
+                as="a"
+                colorScheme="gray"
+                color="initial"
+                target="_blank"
+                width="fit-content"
+              >
+                {t('common:visitRestaurant')}
+              </Button>
+            </ColInfo>
+          </RowContent>
         </Section>
 
         <Section
@@ -261,13 +321,13 @@ function IndexPage({ data }) {
         >
           <FeaturedBanner
             opacity="0.35"
-            height={{ base: '350px', lg: '500px' }}
+            height={{ base: '350px', md: '400px' }}
             alignItems="flex-start"
             image={
               <Image
-                fluid={data.bgLoco.childImageSharp.fluid}
+                fluid={data.digitalNomads.childImageSharp.fluid}
                 layout="background"
-                style={{ opacity: 0.5 }}
+                style={{ opacity: 0.75 }}
               />
             }
           >
@@ -279,30 +339,19 @@ function IndexPage({ data }) {
               maxWidth="700px"
               alignItems="flex-start"
             >
-              <Flex>
-                <Flex
-                  alignItems="flex-start"
-                  justifyContent="center"
-                  width={{ base: '200px', md: '300px' }}
-                  flexShrink="0"
-                >
-                  <img src={locoLogo} />
-                </Flex>
-              </Flex>
-              <P fontSize="lg" fontWeight="bold">
-                {t('index:restaurant.subtitle')}
+              <P fontSize="2xl" fontWeight="bold">
+                {t('index:coworking.title')}
               </P>
-              <P>{t('index:restaurant.desc')}</P>
-              <P fontSize="2xl" textAlign="center"></P>
+              <P>{t('index:coworking.desc')}</P>
               <Box pointerEvents="initial">
                 <Button
-                  href="http://locotulum.com/"
+                  href="https://www.hotelcasacoyotetulum.com/digital-nomads/"
                   as="a"
                   colorScheme="gray"
                   color="initial"
                   target="_blank"
                 >
-                  {t('common:visitRestaurant')}
+                  {t('index:coworking.button')}
                 </Button>
               </Box>
             </Stack>
@@ -370,7 +419,11 @@ export const query = graphql`
       ...multipleFixedImage
     }
 
-    ourRooms: file(relativePath: { eq: "index/our-rooms.jpg" }) {
+    casaCoyoteOurRooms: file(relativePath: { eq: "index/casa-coyote-our-rooms.jpg" }) {
+      ...fixedImage
+    }
+
+    casaXamanOurRooms: file(relativePath: { eq: "index/casa-xaman-our-rooms.jpg" }) {
       ...fixedImage
     }
 
@@ -382,7 +435,11 @@ export const query = graphql`
       ...fixedImage
     }
 
-    bgLoco: file(relativePath: { eq: "index/background-loco-tulum.jpg" }) {
+    locoTulum: file(relativePath: { eq: "index/loco-tulum.png" }) {
+      ...fixedImage
+    }
+
+    digitalNomads: file(relativePath: { eq: "landing/coworking2.png" }) {
       ...bannerSectionImage
     }
   }

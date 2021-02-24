@@ -1,6 +1,6 @@
 {
   "earlybooking": {
-    "title": "Up To 45% Discount. Casa Coyote Tulum. Early Booking",
+    "title": "Up To 45% Discount. {hotel} Tulum. Early Booking",
     "hero": {
       "title": "Up To 45% Discount",
       "desc": "Get the best deal, book your vacation now. Beach club included. 100% mediterranean food.",
@@ -12,7 +12,7 @@
     }
   },
   "lastminute": {
-    "title": "Best Available Rate. Casa Coyote Tulum. Last Minute Reservation",
+    "title": "Best Available Rate. {hotel} Tulum. Last Minute Reservation",
     "hero": {
       "title": "Best Rate Available",
       "desc": "Last rooms available, book now. Beach club included. 100% mediterranean food.",
@@ -24,7 +24,7 @@
     }
   },
   "digitalNomads": {
-    "title": "The Best Destination to Work. Casa Coyote Tulum. Digital Nomads",
+    "title": "The Best Destination to Work. {hotel} Tulum. Digital Nomads",
     "hero": {
       "title": "Digital Nomad Exclusive",
       "features": [
@@ -40,19 +40,19 @@
     }
   },
   "why": {
-    "title": "Why you need to stay at Casa Coyote Tulum?",
+    "title": "Why you need to stay at {hotel} Tulum?",
     "features": {
       "one": {
         "title": "Magical Experience in the Jungle",
-        "desc": "Witness the incredible views from our private roof top terrace of the sunsets that you will only find at Casa Coyote Tulum."
+        "desc": "Witness the incredible views from our private roof top terrace of the sunsets that you will only find at {hotel} Tulum."
       },
       "two": {
         "title": "Beach Club Included",
-        "desc": "When you book at Casa Coyote you will have access to the Dos Ceibas Beach Club just a few steps from the hotel."
+        "desc": "When you book at {hotel} you will have access to the Dos Ceibas Beach Club just a few steps from the hotel."
       },
       "three": {
         "title": "Delicious Mediterranean Food",
-        "desc": "Enjoy our restaurant Loco Tulum, one of the most awarded by Tripadvisor and our guests. 100% mediterranean food."
+        "desc": "Enjoy our restaurant Loco Tulum, one of the most awarded by Tripadvisor and our guests. 100% mediterranean food by chef Idan Lifshitz."
       }
     }
   },
@@ -63,15 +63,15 @@
     "title": "Frequently Asked Questions",
     "faqs": [
       {
-        "question": "Does Casa Coyote have bikes or cars for rental?",
+        "question": "Does {hotel} have bikes or cars for rental?",
         "answer": "If we have bicycles available for guests, we have limited availability, so reservations are necessary."
       },
       {
-        "question": "Where is Casa Coyote located in Tulum?",
+        "question": "Where is {hotel} located in Tulum?",
         "answer": "Carretera Tulum Boca Paila km 9.2."
       },
       {
-        "question": "How can I contact Casa Coyote?",
+        "question": "How can I contact {hotel}?",
         "answer": "You can reach us by phone at +52 1 998 349 7125 and by email at admongrupomanifesto@gmail.com"
       },
       {

@@ -1,12 +1,12 @@
 {
-  "title": "100% eco-hotel en Tulum, México: Casa Coyote",
+  "title": "100% eco-hotel en Tulum, México: {hotel}",
   "bookNow": "Reserva ahora",
   "nextText": "Sig.",
   "prevText": "Ant.",
   "viewPhotos": "Ver fotos",
   "visitRestaurant": "Visitar restaurante",
-  "whatsappText": "Hola, me gustaría solicitar información sobre Casa Coyote...",
-  "whatsappTextDigitalNomads": "Hola, soy nómada digital y me gustaría reservar en Casa Coyote...",
+  "whatsappText": "Hola, me gustaría solicitar información sobre {hotel}...",
+  "whatsappTextDigitalNomads": "Hola, soy nómada digital y me gustaría reservar en {hotel}...",
   "viewMap": "Ver mapa",
   "bookSession": "Reservar una sesión",
   "bookWhatsapp": "Reservar en Whatsapp",
@@ -20,7 +20,7 @@
   "footer": {
     "desc": "Una experiencia increíble que liberará tu mente y tocará tu alma. Habitaciones muy acogedoras, trajes 100% ECO PRIVADOS. Ubicado en la zona más exclusiva de Tulum.",
     "contact": "CONTÁCTANOS",
-    "terms": "© Hotel Casa Coyote Tulum. Todos los derechos reservados. Desarrollo web por",
+    "terms": "© Hotel {hotel} Tulum. Todos los derechos reservados.",
     "floatingBookNow": {
       "title": "100% habitacion eco-privadas.",
       "subtitle": "Eco-hotel en Tulum"

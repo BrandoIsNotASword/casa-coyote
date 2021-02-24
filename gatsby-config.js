@@ -1,6 +1,12 @@
+const activeEnv = process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || 'development'
+
+require('dotenv').config({
+  path: `.env.${activeEnv}`,
+})
+
 module.exports = {
   siteMetadata: {
-    title: `Casa Coyote 100% eco-hotel in Tulum, México`,
+    title: `100% eco-hotel in Tulum, México: ${process.env.GATSBY_HOTEL}`,
     description: `100% eco-hotel with private suites in Tulum, México.`,
     author: `@gatsbyjs`,
   },
@@ -45,7 +51,7 @@ module.exports = {
         background_color: `black`,
         theme_color: `black`,
         display: `minimal-ui`,
-        icon: `src/images/casa-coyote-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/${process.env.GATSBY_HOTEL_VAR}-icon.png`, // This path is relative to the root of the site.
       },
     },
     {

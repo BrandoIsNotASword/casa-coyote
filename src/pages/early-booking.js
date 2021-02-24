@@ -9,13 +9,17 @@ import { H1, P, Image } from '../ui'
 import ButtonBook from '../components/buttonBook'
 import FloatingBook from '../components/floatingBook'
 
-import logo from '../images/casa-coyote-logo-footer.png'
+import logoCoyote from '../images/casa-coyote-logo-footer.png'
+import logoXaman from '../images/casa-xaman-logo-footer.png'
 
 function EarlyBookingPage({ data }) {
+  const isCoyote = process.env.GATSBY_HOTEL_VAR === 'casa-coyote'
   const { t } = useTranslation()
 
   return (
-    <LandingPage title={t('landing:earlybooking.title')}>
+    <LandingPage
+      title={t('landing:earlybooking.title').replace('{hotel}', process.env.GATSBY_HOTEL)}
+    >
       <Header
         image={
           <Image
@@ -41,7 +45,7 @@ function EarlyBookingPage({ data }) {
             marginX="auto"
             opacity="0.85"
           >
-            <img style={{ width: '100%' }} src={logo} />
+            <img style={{ width: '100%' }} src={isCoyote ? logoCoyote : logoXaman} />
           </Flex>
           <H1 color="white" fontSize="5xl" textAlign="center">
             {t('landing:earlybooking.hero.title')}
@@ -57,17 +61,17 @@ function EarlyBookingPage({ data }) {
       </Header>
 
       <Features
-        title={t('landing:why.title')}
+        title={t('landing:why.title').replace('{hotel}', process.env.GATSBY_HOTEL)}
         list={[
           {
             image: <Image fixed={data.why1.childImageSharp.fixed} layout="background" />,
             title: t('landing:why.features.one.title'),
-            desc: t('landing:why.features.one.desc'),
+            desc: t('landing:why.features.one.desc').replace('{hotel}', process.env.GATSBY_HOTEL),
           },
           {
             image: <Image fixed={data.why2.childImageSharp.fixed} layout="background" />,
             title: t('landing:why.features.two.title'),
-            desc: t('landing:why.features.two.desc'),
+            desc: t('landing:why.features.two.desc').replace('{hotel}', process.env.GATSBY_HOTEL),
           },
           {
             image: <Image fixed={data.why3.childImageSharp.fixed} layout="background" />,
@@ -85,7 +89,13 @@ function EarlyBookingPage({ data }) {
         ))}
       />
 
-      <Faqs title={t('landing:faq.title')} list={t('landing:faq.faqs', { returnObjects: true })} />
+      <Faqs
+        title={t('landing:faq.title')}
+        list={t('landing:faq.faqs', { returnObjects: true }).map((faq) => ({
+          question: faq.question.replace('{hotel}', process.env.GATSBY_HOTEL),
+          answer: faq.answer,
+        }))}
+      />
 
       <FloatingBook
         title={t('landing:earlybooking.floatingBookNow.title')}

@@ -1,12 +1,12 @@
 {
-  "title": "100% eco-hotel in Tulum, Mexico: Casa Coyote",
+  "title": "100% eco-hotel in Tulum, Mexico: {hotel}",
   "bookNow": "Book now",
   "nextText": "Next",
   "prevText": "Prev",
   "viewPhotos": "View photos",
   "visitRestaurant": "Visit restaurant",
-  "whatsappText": "Hello, I would like to request information about Casa Coyote...",
-  "whatsappTextDigitalNomads": "Hi, I'm a digital nomad and would like to book at Casa Coyote...",
+  "whatsappText": "Hello, I would like to request information about {hotel}...",
+  "whatsappTextDigitalNomads": "Hi, I'm a digital nomad and would like to book at {hotel}...",
   "viewMap": "View map",
   "bookSession": "Book a session",
   "bookWhatsapp": "Book via Whatsapp",
@@ -20,7 +20,7 @@
   "footer": {
     "desc": "Amazing experience that will free your mind & touch your soul. Very cozy rooms, 100% ECO PRIVATE SUITES. Located at the most exclusive area of Tulum.",
     "contact": "CONTACT US",
-    "terms": "© Hotel Casa Coyote Tulum. All Rights Reserved. Web development by",
+    "terms": "© Hotel {hotel} Tulum. All Rights Reserved.",
     "floatingBookNow": {
       "title": "100% eco-private suites.",
       "subtitle": "Eco-hotel in Tulum"

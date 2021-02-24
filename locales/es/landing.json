@@ -1,6 +1,6 @@
 {
   "earlybooking": {
-    "title": "Hasta 45% De Descuento. Casa Coyote Tulum. Reserva Anticipada",
+    "title": "Hasta 45% De Descuento. {hotel} Tulum. Reserva Anticipada",
     "hero": {
       "title": "Hasta 45% De Descuento",
       "desc": "Aprovecha la promoción, reserva tus vacaciones ahora. Incluye club de playa. 100% comida mediterránea.",
@@ -12,7 +12,7 @@
     }
   },
   "lastminute": {
-    "title": "Mejor Tarifa Encontrada. Casa Coyote Tulum. Reserva de Último Minuto",
+    "title": "Mejor Tarifa Encontrada. {hotel} Tulum. Reserva de Último Minuto",
     "hero": {
       "title": "Mejor Tarifa Encontrada",
       "desc": "Últimas habitaciones, reserva ahora. Incluye club de playa. 100% comida mediterránea.",
@@ -24,7 +24,7 @@
     }
   },
   "digitalNomads": {
-    "title": "El Mejor Destino Para Trabajar. Casa Coyote Tulum. Nómadas Digitales",
+    "title": "El Mejor Destino Para Trabajar. {hotel} Tulum. Nómadas Digitales",
     "hero": {
       "title": "Promoción Nómadas Digitales",
       "features": [
@@ -40,19 +40,19 @@
     }
   },
   "why": {
-    "title": "¿Por qué tienes que alojarte en Casa Coyote Tulum?",
+    "title": "¿Por qué tienes que alojarte en {hotel} Tulum?",
     "features": {
       "one": {
         "title": "Mágica Experiencia en la Selva",
-        "desc": "Se testigo de las increíbles vistas desde nuestro roof top privado de los atardece que solamente encontrarás en Casa Coyote Tulum."
+        "desc": "Se testigo de las increíbles vistas desde nuestro roof top privado de los atardece que solamente encontrarás en {hotel} Tulum."
       },
       "two": {
         "title": "Club de Playa Incluído",
-        "desc": "Al reservar en Casa Coyote tendrás acceso al club de Playa de Dos Ceibas a unos cuantos pasos del hotel."
+        "desc": "Al reservar en {hotel} tendrás acceso al club de Playa de Dos Ceibas a unos cuantos pasos del hotel."
       },
       "three": {
         "title": "Deliciosa Comida Mediterránea",
-        "desc": "Disfrute de nuestro restaurante Loco Tulum, uno de los más premiados por Tripadvisor y por nuestros huéspedes. Comida 100% mediterránea."
+        "desc": "Disfrute de nuestro restaurante Loco Tulum, uno de los más premiados por Tripadvisor y por nuestros huéspedes. Comida 100% mediterránea por chef Idan Lifshitz."
       }
     }
   },
@@ -63,15 +63,15 @@
     "title": "Preguntas frecuentes",
     "faqs": [
       {
-        "question": "¿Tiene Casa Coyote bicicletas o coches de alquiler?",
+        "question": "¿Tiene {hotel} bicicletas o coches de alquiler?",
         "answer": "Si tenemos bicicletas disponibles para los huéspedes, tenemos disponibilidad limitada, por lo que es necesario reservar."
       },
       {
-        "question": "¿Dónde se encuentra Casa Coyote en Tulum?",
+        "question": "¿Dónde se encuentra {hotel} en Tulum?",
         "answer": "Carretera Tulum Boca Paila km 9.2."
       },
       {
-        "question": "¿Cómo puedo contactar con Casa Coyote?",
+        "question": "¿Cómo puedo contactar con {hotel}?",
         "answer": "Puede comunicarse con nosotros por teléfono al +52 1 998 349 7125 y por correo electrónico a admongrupomanifesto@gmail.com."
       },
       {

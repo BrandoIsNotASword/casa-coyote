@@ -29,9 +29,14 @@ import { bookingModalState } from '../store'
 import SEO from './seo'
 import ButtonBook from './buttonBook'
 
-import logoFooter from '../images/casa-coyote-logo-footer.png'
-import popupEn from '../images/popup-last-minute-en.jpg'
-import popupEs from '../images/popup-last-minute-es.jpg'
+import logoFooterCoyote from '../images/casa-coyote-logo-footer.png'
+import logoFooterXaman from '../images/casa-xaman-logo-footer.png'
+
+import popupEnCoyote from '../images/casa-coyote-popup-last-minute-en.jpg'
+import popupEsCoyote from '../images/casa-coyote-popup-last-minute-es.jpg'
+
+import popupEnXaman from '../images/casa-xaman-popup-last-minute-en.jpg'
+import popupEsXaman from '../images/casa-xaman-popup-last-minute-es.jpg'
 
 const globalStyles = css`
   @font-face {
@@ -82,6 +87,8 @@ function Layout({
   disablePopup,
   disableFloatingBanner,
 }) {
+  const isCoyote = process.env.GATSBY_HOTEL_VAR === 'casa-coyote'
+
   const { t } = useTranslation()
   const { language, changeLanguage } = useI18next()
   const [bookingModal, setBookingModal] = useRecoilState(bookingModalState)
@@ -109,7 +116,7 @@ function Layout({
           <FooterColumn align="center">
             <Link to="/">
               <Flex alignItems="flex-start" width={{ base: '200px', md: '250px' }} marginX="auto">
-                <img src={logoFooter} />
+                <img src={isCoyote ? logoFooterCoyote : logoFooterXaman} />
               </Flex>
             </Link>
             <P textAlign="center">{t('common:footer.desc')}</P>
@@ -134,7 +141,7 @@ function Layout({
         <FooterDivider backgroundColor="red.800" />
         <FooterBottom direction={{ base: 'column', md: 'row' }} justify="space-between">
           <P fontSize="sm" lineHeight="shorter" textAlign={{ base: 'center', lg: 'left' }}>
-            © Hotel Casa Coyote Tulum
+            {t('common:footer.terms').replace('{hotel}', process.env.GATSBY_HOTEL)}
           </P>
           <P fontSize="sm" lineHeight="shorter" textAlign={{ base: 'center', lg: 'left' }}>
             Developed by{' '}
@@ -160,8 +167,6 @@ function Layout({
         />
       )}
 
-      {console.log(disableFloatingBanner)}
-
       {!disableFloatingBanner && (
         <FloatingBook
           title={t('common:floatingBanner.title')}
@@ -179,7 +184,18 @@ function Layout({
             arrival="2021-02-15"
             departure="2021-02-16"
           >
-            <img style={{ width: '100%' }} src={language === 'es' ? popupEs : popupEn} />
+            <img
+              style={{ width: '100%' }}
+              src={
+                language === 'es'
+                  ? isCoyote
+                    ? popupEsCoyote
+                    : popupEsXaman
+                  : isCoyote
+                  ? popupEnCoyote
+                  : popupEnXaman
+              }
+            />
           </ButtonBook>
         </Popup>
       )}
