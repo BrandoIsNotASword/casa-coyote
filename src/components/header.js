@@ -47,21 +47,11 @@ function Header({ variantHeader, ...restProps }) {
       position={{ base: 'relative', md: variantHeader === 'solid' ? 'initial' : 'fixed' }}
       {...restProps}
     >
-      <Link href="#hotel">
-        <NavLink>{t('common:nav.hotel')}</NavLink>
-      </Link>
-      <Link href="#rooms">
-        <NavLink>{t('common:nav.rooms')}</NavLink>
-      </Link>
-      <Link href="#experience">
-        <NavLink>{t('common:nav.experience')}</NavLink>
-      </Link>
-      <Link href="#restaurant">
-        <NavLink>{t('common:nav.restaurant')}</NavLink>
-      </Link>
-      <Link href="#contact">
-        <NavLink>{t('common:nav.contact')}</NavLink>
-      </Link>
+      <NavLink href="#hotel">{t('common:nav.hotel')}</NavLink>
+      <NavLink href="#rooms">{t('common:nav.rooms')}</NavLink>
+      <NavLink href="#experience">{t('common:nav.experience')}</NavLink>
+      <NavLink href="#restaurant">{t('common:nav.restaurant')}</NavLink>
+      <NavLink href="#contact">{t('common:nav.contact')}</NavLink>
     </Menu>
   )
 }

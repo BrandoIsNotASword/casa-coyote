@@ -51,7 +51,7 @@ module.exports = {
         background_color: `black`,
         theme_color: `black`,
         display: `minimal-ui`,
-        icon: `src/images/casa-coyote-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/${process.env.GATSBY_HOTEL_VAR}-icon.png`, // This path is relative to the root of the site.
       },
     },
     {
